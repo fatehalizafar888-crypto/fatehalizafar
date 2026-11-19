@@ -276,9 +276,9 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 .case-close,.case-back{position:fixed;top:18px;right:var(--pad);z-index:80;opacity:0;pointer-events:none;transition:opacity .5s .5s}
 .case-back{right:auto;left:var(--pad)}
 #case.open .case-close,#case.open .case-back{opacity:1;pointer-events:auto}
-.fsw{width:100vw;margin:clamp(40px,8vw,120px) 0 0 calc(50% - 50vw)}
-.fs{margin:0;display:flex;justify-content:center;overflow:hidden}
-.fs img{display:block;width:100%;max-width:1800px;height:auto;cursor:zoom-in}
+.sl{position:relative}
+.sf{margin:0;display:flex;justify-content:center;background-image:url(images/tafteesh/map.png);background-size:97.8vw auto;background-position:50% 0;background-repeat:repeat}
+.sf img{display:block;height:auto;cursor:zoom-in}
 .case-hero{position:relative;height:100svh;min-height:520px;overflow:hidden}
 .hero-art{position:absolute;inset:0}
 .case-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#000 4%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.1) 70%)}
@@ -546,29 +546,27 @@ const PROJECTS = [
     overview:'Tafteesh is a crime investigation board game set in Model Town, Lahore. A murder has happened and the players have to catch the killer on the map before he escapes. One player is the killer and moves in secret, the rest are a police officer, a detective and an analyst working from clues. Every case is a crime that already happened, and every case plays differently.',
     question:'',questionMore:'',steps:[],outcome:'',outcomeList:[],
     figs:[],
-    full:[{src:'images/tafteesh/05.webp',w:2880,h:2218,bg:'#21211f',cap:'Tafteesh'},
-      {src:'images/tafteesh/06.webp',w:2880,h:2242,bg:'#1a1a1a',cap:'What is Tafteesh'},
-      {src:'images/tafteesh/07.webp',w:2880,h:3981,bg:'#ffffff',cap:'Players and characters'},
-      {src:'images/tafteesh/01.webp',w:2866,h:1750,bg:'#fcfbfc',cap:'How to play'},
-      {src:'images/tafteesh/03.webp',w:2880,h:2190,bg:'#1a1a1a',cap:'Unresolved cases'},
-      {src:'images/tafteesh/04.webp',w:2880,h:2190,bg:'#1a1a1a',cap:'Case 01, Blackout'},
-      {src:'images/tafteesh/02.webp',w:1234,h:1750,bg:'#fcfbfc',cap:'Case file'},
-      {src:'images/tafteesh/08.webp',w:2880,h:3568,bg:'#1a1a1a',cap:'Game map, Model Town'},
-      {src:'images/tafteesh/09.webp',w:2880,h:3941,bg:'#ffffff',cap:'Key'},
-      {src:'images/tafteesh/11.webp',w:2880,h:2759,bg:'#1a1a1a',cap:'Killer sheet'},
-      {src:'images/tafteesh/12.webp',w:2880,h:2904,bg:'#ffffff',cap:'Rulebook and story'},
-      {src:'images/tafteesh/10.webp',w:2880,h:2240,bg:'#e82328',cap:'Typeface'},
-      {src:'images/tafteesh/13.webp',w:2880,h:3023,bg:'#ffffff',cap:'Lid wrap'},
-      {src:'images/tafteesh/14.webp',w:2880,h:3021,bg:'#ffffff',cap:'Base wrap'},
-      {src:'images/tafteesh/16.webp',w:2880,h:1620,bg:'#222221',cap:'The box'},
-      {src:'images/tafteesh/17.webp',w:2880,h:2160,bg:'#1e1e1e',cap:'Inside the box'},
-      {src:'images/tafteesh/18.webp',w:2880,h:1620,bg:'#070707',cap:'The standees'},
-      {src:'images/tafteesh/19.webp',w:2880,h:1620,bg:'#111111',cap:'The lid in the dark'},
-      {src:'images/tafteesh/20.webp',w:2880,h:1620,bg:'#212121',cap:'Rulebook and case cards'},
-      {src:'images/tafteesh/21.webp',w:2880,h:1620,bg:'#1e1e1e',cap:'Base of the box'},
-      {src:'images/tafteesh/22.webp',w:2880,h:1621,bg:'#1d1d1b',cap:'Opened box'}],
-    groups:[
-    ]
+    slides:[{src:'images/tafteesh/05.webp',w:3884,h:2990,wr:1,bg:'#1a1a1a',cap:'Tafteesh'},
+      {src:'images/tafteesh/06.webp',w:3839,h:2988,wr:1,bg:'#1a1a1a',cap:'What is Tafteesh'},
+      {src:'images/tafteesh/07.webp',w:3849,h:5321,wr:1,bg:'#ffffff',cap:'Players and characters'},
+      {src:'images/tafteesh/01.webp',w:3803,h:2323,wr:1,bg:'#ffffff',cap:'How to play'},
+      {src:'images/tafteesh/03.webp',w:3839,h:2920,wr:1,bg:'#1a1a1a',cap:'Unresolved cases'},
+      {src:'images/tafteesh/04.webp',w:3839,h:2920,wr:1,bg:'#1a1a1a',cap:'Case 01, Blackout'},
+      {src:'images/tafteesh/02.webp',w:1637,h:2323,wr:0.4264,bg:'#ffffff',cap:'Case file'},
+      {src:'images/tafteesh/08.webp',w:3840,h:4757,wr:1,bg:'#1a1a1a',cap:'Game map, Model Town'},
+      {src:'images/tafteesh/09.webp',w:3840,h:5254,wr:1,bg:'#ffffff',cap:'Key'},
+      {src:'images/tafteesh/11.webp',w:3840,h:3678,wr:1,bg:'#1a1a1a',cap:'Killer sheet'},
+      {src:'images/tafteesh/12.webp',w:3840,h:3872,wr:1,bg:'#ffffff',cap:'Rulebook and story'},
+      {src:'images/tafteesh/10.webp',w:3840,h:2987,wr:1,bg:'#e82329',cap:'Typeface'},
+      {src:'images/tafteesh/13.webp',w:3840,h:4031,wr:1,bg:'#ffffff',cap:'Lid wrap'},
+      {src:'images/tafteesh/14.webp',w:3840,h:4028,wr:1,bg:'#ffffff',cap:'Base wrap'},
+      {src:'images/tafteesh/16.webp',w:2800,h:1575,wr:1,bg:'#1a1a1a',cap:'The box'},
+      {src:'images/tafteesh/17.webp',w:2800,h:2100,wr:1,bg:'#1a1a1a',cap:'Inside the box'},
+      {src:'images/tafteesh/18.webp',w:2800,h:1575,wr:1,bg:'#1a1a1a',cap:'The standees'},
+      {src:'images/tafteesh/19.webp',w:2800,h:1575,wr:1,bg:'#1a1a1a',cap:'The lid in the dark'},
+      {src:'images/tafteesh/20.webp',w:2800,h:1575,wr:1,bg:'#1a1a1a',cap:'Rulebook and case cards'},
+      {src:'images/tafteesh/21.webp',w:2800,h:1575,wr:1,bg:'#1a1a1a',cap:'Base of the box'},
+      {src:'images/tafteesh/22.webp',w:2800,h:1575,wr:1,bg:'#1a1a1a',cap:'Opened box'}]
   },
   {
     id:'atom-daily', title:'ATOM Daily', art:'atom', cover:null,
@@ -1013,9 +1011,9 @@ function caseHTML(p){
   if(cur)lines.push(cur);
   const figs=p.figs.map((f,k)=>`<figure class="fig${f.wide?' wide':''}"><div class="frame${f.src?'':' ph'}">${f.src?`<img src="${f.src}" alt="${esc(f.cap)}" loading="lazy">`:`<span class="ph-t">Image ${String(k+1).padStart(2,'0')}</span>`}</div><figcaption><b>Fig. ${String(k+1).padStart(2,'0')}</b>${esc(f.cap)}</figcaption></figure>`).join('');
   const band=(f,cls)=>`<div class="flow-band${cls||''}" style="background:${f.bg};--ar:${(f.w/f.h).toFixed(3)}">${f.video?`<video src="${f.video}" poster="${f.poster}" controls muted loop playsinline preload="metadata"></video>`:`<img src="${f.src}" width="${f.w}" height="${f.h}" alt="" loading="lazy" decoding="async" data-zoom="${f.src}">`}</div>`;
-  const flow=p.flow||null;
+  const flow=p.flow||null,sl=p.slides||null;
   return `
-  ${flow?`<div id="heroArt" class="flow-cover">${band(flow[0])}</div>`:`<div class="case-hero">
+  ${sl?`<div id="heroArt" class="sl">${sl.map(f=>`<figure class="sf" style="background-color:${f.bg}"><img src="${f.src}" width="${f.w}" height="${f.h}" style="width:${f.wr*100}%" alt="${esc(f.cap)}" decoding="async" data-zoom="${f.src}"${sl.indexOf(f)>1?' loading="lazy"':''}></figure>`).join('')}</div>`:flow?`<div id="heroArt" class="flow-cover">${band(flow[0])}</div>`:`<div class="case-hero">
     <div class="hero-art" id="heroArt">${heroArt(p)}</div>
     <div class="case-hero-in">
       <div class="case-cats">${p.cats.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}<span class="chip">${esc(p.year)}</span></div>
@@ -1023,7 +1021,7 @@ function caseHTML(p){
       <p class="case-line">${esc(p.line)}</p>
     </div>
   </div>`}
-  <div class="case-body">
+  ${sl?'':`<div class="case-body">
     <div class="case-facts">
       <div><span>Role</span><b>${esc(p.role)}</b></div>
       <div><span>Type</span><b>${esc(p.type)}</b></div>
@@ -1037,7 +1035,7 @@ function caseHTML(p){
     ${p.figs.length?`<section class="cs"><p class="label">Artifacts</p><div class="cs-body"><div class="figs" style="margin-top:0">${figs}</div></div></section>`:''}
     ${(p.full||[]).length?`<div class="fsw">${p.full.map(im=>`<figure class="fs" style="background:${im.bg}"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"></figure>`).join('')}</div>`:''}
     ${(p.groups||[]).map(g=>`<section class="cs cs-wide"><p class="label">${esc(g.title)}</p><div class="slides">${g.imgs.map(im=>`${im.video?`<figure class="slide vid"><video src="${im.video}" poster="${im.poster}" controls muted loop playsinline preload="metadata"></video><figcaption>${esc(im.cap)}</figcaption></figure>`:`<figure class="slide"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"><figcaption>${esc(im.cap)}</figcaption></figure>`}`).join('')}</div></section>`).join('')}
-  </div>
+  </div>`}
   ${flow?`<div class="flow">${flow.slice(1).map(f=>band(f)).join('')}</div>`:''}
   <a class="next" href="#work-${nxt.id}" data-next="${nxt.id}" data-cursor="sm"><div class="next-in"><div><p class="label">Next project</p><h3 class="disp">${esc(nxt.title)}</h3></div><span class="arr" aria-hidden="true">&rarr;</span></div></a>`;
 }
@@ -1045,12 +1043,15 @@ function clipFor(rect){
   if(!rect)return `inset(${innerHeight*.45}px ${innerWidth*.35}px ${innerHeight*.45}px ${innerWidth*.35}px round 20px)`;
   return `inset(${rect.top}px ${innerWidth-rect.right}px ${innerHeight-rect.bottom}px ${rect.left}px round 20px)`;
 }
+function alignMap(){const f=$$('.sf',caseInner);if(!f.length)return;const t=f[0].offsetTop;f.forEach(e=>{e.style.backgroundPosition='50% '+(-(e.offsetTop-t))+'px'})}
+addEventListener('resize',alignMap);
 function openCase(id,fromEl,push){
   const p=PROJECTS.find(x=>x.id===id);if(!p)return;
   const swap=caseOpen;
   activeId=id;
   caseInner.innerHTML=caseHTML(p);
   caseEl.scrollTop=0;
+  alignMap();
   const card=fromEl||$(`.card[data-id="${id}"]`);
   lastRect=card?card.getBoundingClientRect():null;
   caseEl.classList.add('open');caseOpen=true;
