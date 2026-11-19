@@ -271,11 +271,14 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 #zoom img{display:block;margin:0 auto;max-width:100%;max-height:100svh;object-fit:contain;cursor:zoom-in}
 #zoom.full img{max-width:none;max-height:none;width:2880px;cursor:zoom-out}
 /* ---------- case study overlay ---------- */
-#case{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;visibility:hidden}
+#case{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;visibility:hidden}
 #case.open{visibility:visible}
 .case-close,.case-back{position:fixed;top:18px;right:var(--pad);z-index:80;opacity:0;pointer-events:none;transition:opacity .5s .5s}
 .case-back{right:auto;left:var(--pad)}
 #case.open .case-close,#case.open .case-back{opacity:1;pointer-events:auto}
+.fsw{width:100vw;margin:clamp(40px,8vw,120px) 0 0 calc(50% - 50vw)}
+.fs{margin:0;display:flex;justify-content:center;overflow:hidden}
+.fs img{display:block;width:100%;max-width:1800px;height:auto;cursor:zoom-in}
 .case-hero{position:relative;height:100svh;min-height:520px;overflow:hidden}
 .hero-art{position:absolute;inset:0}
 .case-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#000 4%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.1) 70%)}
@@ -289,6 +292,13 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 .case-line{color:#c8c8c4;font-size:clamp(16px,1.5vw,21px);margin-top:22px;max-width:46ch;opacity:0}
 #case.open .case-line{animation:fade 1s .9s forwards}
 @keyframes fade{to{opacity:1}}
+.flow-cover{height:100svh;min-height:420px;position:relative}
+.flow-cover .flow-band{height:100%;align-items:center}
+.flow-cover img{max-height:100%;width:auto;max-width:100%}
+.flow{margin-top:clamp(40px,8vh,100px)}
+.flow-band{display:flex;justify-content:center}
+.flow-band img{display:block;width:100%;height:auto;cursor:zoom-in;max-width:max(calc(var(--ar) * 100vh * 1.15),min(100%,1000px))}
+.flow-band video{display:block;width:100%;height:auto;max-height:100svh;aspect-ratio:16/9;background:#000}
 .case-body{max-width:1240px;margin:0 auto;padding:clamp(40px,8vh,100px) var(--pad) 0}
 .case-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-bottom:clamp(36px,6vh,70px)}
 .case-facts div span{display:block;font-size:13px;color:var(--dim);margin-bottom:6px}
@@ -536,13 +546,28 @@ const PROJECTS = [
     overview:'Tafteesh is a crime investigation board game set in Model Town, Lahore. A murder has happened and the players have to catch the killer on the map before he escapes. One player is the killer and moves in secret, the rest are a police officer, a detective and an analyst working from clues. Every case is a crime that already happened, and every case plays differently.',
     question:'',questionMore:'',steps:[],outcome:'',outcomeList:[],
     figs:[],
+    full:[{src:'images/tafteesh/05.webp',w:2880,h:2218,bg:'#21211f',cap:'Tafteesh'},
+      {src:'images/tafteesh/06.webp',w:2880,h:2242,bg:'#1a1a1a',cap:'What is Tafteesh'},
+      {src:'images/tafteesh/07.webp',w:2880,h:3981,bg:'#ffffff',cap:'Players and characters'},
+      {src:'images/tafteesh/01.webp',w:2866,h:1750,bg:'#fcfbfc',cap:'How to play'},
+      {src:'images/tafteesh/03.webp',w:2880,h:2190,bg:'#1a1a1a',cap:'Unresolved cases'},
+      {src:'images/tafteesh/04.webp',w:2880,h:2190,bg:'#1a1a1a',cap:'Case 01, Blackout'},
+      {src:'images/tafteesh/02.webp',w:1234,h:1750,bg:'#fcfbfc',cap:'Case file'},
+      {src:'images/tafteesh/08.webp',w:2880,h:3568,bg:'#1a1a1a',cap:'Game map, Model Town'},
+      {src:'images/tafteesh/09.webp',w:2880,h:3941,bg:'#ffffff',cap:'Key'},
+      {src:'images/tafteesh/11.webp',w:2880,h:2759,bg:'#1a1a1a',cap:'Killer sheet'},
+      {src:'images/tafteesh/12.webp',w:2880,h:2904,bg:'#ffffff',cap:'Rulebook and story'},
+      {src:'images/tafteesh/10.webp',w:2880,h:2240,bg:'#e82328',cap:'Typeface'},
+      {src:'images/tafteesh/13.webp',w:2880,h:3023,bg:'#ffffff',cap:'Lid wrap'},
+      {src:'images/tafteesh/14.webp',w:2880,h:3021,bg:'#ffffff',cap:'Base wrap'},
+      {src:'images/tafteesh/16.webp',w:2880,h:1620,bg:'#222221',cap:'The box'},
+      {src:'images/tafteesh/17.webp',w:2880,h:2160,bg:'#1e1e1e',cap:'Inside the box'},
+      {src:'images/tafteesh/18.webp',w:2880,h:1620,bg:'#070707',cap:'The standees'},
+      {src:'images/tafteesh/19.webp',w:2880,h:1620,bg:'#111111',cap:'The lid in the dark'},
+      {src:'images/tafteesh/20.webp',w:2880,h:1620,bg:'#212121',cap:'Rulebook and case cards'},
+      {src:'images/tafteesh/21.webp',w:2880,h:1620,bg:'#1e1e1e',cap:'Base of the box'},
+      {src:'images/tafteesh/22.webp',w:2880,h:1621,bg:'#1d1d1b',cap:'Opened box'}],
     groups:[
-      {title:'Mockups',imgs:[{src:'images/tafteesh/16.webp',w:2880,h:1620,cap:'The box'},{src:'images/tafteesh/17.webp',w:2880,h:2160,cap:'Everything inside the box'},{src:'images/tafteesh/18.webp',w:2880,h:1620,cap:'The standees'},{src:'images/tafteesh/19.webp',w:2880,h:1620,cap:'The lid in the dark'},{src:'images/tafteesh/20.webp',w:2880,h:1620,cap:'Rulebook and case cards'},{src:'images/tafteesh/21.webp',w:2880,h:1620,cap:'Base of the box'},{src:'images/tafteesh/22.webp',w:2880,h:1621,cap:'Opened box'}]},
-      {title:'The game',imgs:[{src:'images/tafteesh/05.webp',w:2880,h:2218,cap:'Tafteesh'},{src:'images/tafteesh/06.webp',w:2880,h:2242,cap:'What is Tafteesh'},{src:'images/tafteesh/07.webp',w:2880,h:3981,cap:'Players and characters'},{src:'images/tafteesh/08.webp',w:2880,h:3568,cap:'Game map, Model Town'},{src:'images/tafteesh/09.webp',w:2880,h:3941,cap:'Key'}]},
-      {title:'Cases',imgs:[{src:'images/tafteesh/03.webp',w:2880,h:2190,cap:'Unresolved cases'},{src:'images/tafteesh/04.webp',w:2880,h:2190,cap:'Case 01, Blackout'},{src:'images/tafteesh/02.webp',w:1234,h:1750,cap:'Case file'},{src:'images/tafteesh/11.webp',w:2880,h:2759,cap:'Killer sheet'}]},
-      {title:'How to play',imgs:[{src:'images/tafteesh/01.webp',w:2866,h:1750,cap:'How to play'},{src:'images/tafteesh/12.webp',w:2880,h:2904,cap:'Rulebook and story'}]},
-      {title:'Brand',imgs:[{src:'images/tafteesh/10.webp',w:2880,h:2240,cap:'Typeface, made only for this game'}]},
-      {title:'Packaging',imgs:[{src:'images/tafteesh/13.webp',w:2880,h:3023,cap:'Lid wrap'},{src:'images/tafteesh/14.webp',w:2880,h:3021,cap:'Base wrap'}]}
     ]
   },
   {
@@ -987,15 +1012,17 @@ function caseHTML(p){
   words.forEach(w=>{if((cur+' '+w).trim().length>14&&cur){lines.push(cur);cur=w}else cur=(cur+' '+w).trim()});
   if(cur)lines.push(cur);
   const figs=p.figs.map((f,k)=>`<figure class="fig${f.wide?' wide':''}"><div class="frame${f.src?'':' ph'}">${f.src?`<img src="${f.src}" alt="${esc(f.cap)}" loading="lazy">`:`<span class="ph-t">Image ${String(k+1).padStart(2,'0')}</span>`}</div><figcaption><b>Fig. ${String(k+1).padStart(2,'0')}</b>${esc(f.cap)}</figcaption></figure>`).join('');
+  const band=(f,cls)=>`<div class="flow-band${cls||''}" style="background:${f.bg};--ar:${(f.w/f.h).toFixed(3)}">${f.video?`<video src="${f.video}" poster="${f.poster}" controls muted loop playsinline preload="metadata"></video>`:`<img src="${f.src}" width="${f.w}" height="${f.h}" alt="" loading="lazy" decoding="async" data-zoom="${f.src}">`}</div>`;
+  const flow=p.flow||null;
   return `
-  <div class="case-hero">
+  ${flow?`<div id="heroArt" class="flow-cover">${band(flow[0])}</div>`:`<div class="case-hero">
     <div class="hero-art" id="heroArt">${heroArt(p)}</div>
     <div class="case-hero-in">
       <div class="case-cats">${p.cats.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}<span class="chip">${esc(p.year)}</span></div>
       <h2 class="case-title disp">${lines.map(l=>`<span class="ln"><span>${esc(l)}</span></span>`).join('')}</h2>
       <p class="case-line">${esc(p.line)}</p>
     </div>
-  </div>
+  </div>`}
   <div class="case-body">
     <div class="case-facts">
       <div><span>Role</span><b>${esc(p.role)}</b></div>
@@ -1008,8 +1035,10 @@ function caseHTML(p){
     ${p.steps.length?`<section class="cs"><p class="label">Process</p><div class="cs-body"><ol class="steps">${p.steps.map((s,k)=>`<li class="step"><i>/${String(k+1).padStart(2,'0')}</i><div><h4>${esc(s[0])}</h4><p>${esc(s[1])}</p></div></li>`).join('')}</ol></div></section>`:''}
     ${p.outcome?`<section class="cs"><p class="label">Outcome</p><div class="cs-body"><p class="cs-lead">${esc(p.outcome)}</p><ol class="steps" style="margin-top:28px">${p.outcomeList.map((s,k)=>`<li class="step"><i>/${String(k+1).padStart(2,'0')}</i><div><p style="margin:0;color:var(--ink)">${esc(s)}</p></div></li>`).join('')}</ol></div></section>`:''}
     ${p.figs.length?`<section class="cs"><p class="label">Artifacts</p><div class="cs-body"><div class="figs" style="margin-top:0">${figs}</div></div></section>`:''}
+    ${(p.full||[]).length?`<div class="fsw">${p.full.map(im=>`<figure class="fs" style="background:${im.bg}"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"></figure>`).join('')}</div>`:''}
     ${(p.groups||[]).map(g=>`<section class="cs cs-wide"><p class="label">${esc(g.title)}</p><div class="slides">${g.imgs.map(im=>`${im.video?`<figure class="slide vid"><video src="${im.video}" poster="${im.poster}" controls muted loop playsinline preload="metadata"></video><figcaption>${esc(im.cap)}</figcaption></figure>`:`<figure class="slide"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"><figcaption>${esc(im.cap)}</figcaption></figure>`}`).join('')}</div></section>`).join('')}
   </div>
+  ${flow?`<div class="flow">${flow.slice(1).map(f=>band(f)).join('')}</div>`:''}
   <a class="next" href="#work-${nxt.id}" data-next="${nxt.id}" data-cursor="sm"><div class="next-in"><div><p class="label">Next project</p><h3 class="disp">${esc(nxt.title)}</h3></div><span class="arr" aria-hidden="true">&rarr;</span></div></a>`;
 }
 function clipFor(rect){
