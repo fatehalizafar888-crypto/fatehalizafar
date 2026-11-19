@@ -264,6 +264,7 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 .slides{display:grid;gap:clamp(12px,1.6vw,22px)}
 .slide{margin:0}
 .slide img{width:100%;height:auto;display:block;border-radius:16px;background:var(--panel);cursor:zoom-in}
+.slide video{width:100%;height:auto;display:block;border-radius:16px;background:#000;aspect-ratio:16/9}
 .slide figcaption{font-size:13.5px;color:var(--grey);margin-top:10px}
 #zoom{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.92);display:none;overflow:auto;cursor:zoom-out}
 #zoom.on{display:block}
@@ -507,7 +508,7 @@ const PROJECTS = [
   {
     id:'drip', title:'Drip', art:'wardo', cover:'images/drip/24-card.webp',
     hero:'images/drip/05.webp',
-    hover:['images/drip/02-card.webp','images/drip/03-card.webp','images/drip/05-card.webp','images/drip/25-card.webp','images/drip/26-card.webp','images/drip/27-card.webp','images/drip/28-card.webp'],
+    hover:['images/drip/02-card.webp','images/drip/03-card.webp','images/drip/05-card.webp','images/drip/25-card.webp','images/drip/26-card.webp','images/drip/27a-card.webp','images/drip/27b-card.webp','images/drip/28-card.webp'],
     cats:['UX Case Studies','Branding','Product Design'], year:'2026',
     role:'Branding, UX research and UI', type:'Mobile app and brand identity', tools:'Figma, Illustrator, Photoshop',
     line:'Wear it like you meant it. A wardrobe app that helps you walk in sure.',
@@ -532,13 +533,15 @@ const PROJECTS = [
     ],
     figs:[],
     groups:[
-      {title:'Process',imgs:[{src:'images/drip/06.webp',cap:'Design process, six steps'},{src:'images/drip/07.webp',cap:'Project timeline'}]},
-      {title:'Discover',imgs:[{src:'images/drip/08.webp',cap:'The doubt is bigger than the outfit'},{src:'images/drip/13.webp',cap:'Stakeholder mapping, fashion professionals we interviewed'},{src:'images/drip/14.webp',cap:'Quantitative research'},{src:'images/drip/15.webp',cap:'Qualitative research, the interview questions'},{src:'images/drip/16.webp',cap:'Empathy mapping'},{src:'images/drip/09.webp',cap:'User journey map'},{src:'images/drip/11.webp',cap:'Target audience'},{src:'images/drip/12.webp',cap:'Competitive analysis'},{src:'images/drip/10.webp',cap:'The problem and how Drip answers it'}]},
-      {title:'Ideate and structure',imgs:[{src:'images/drip/17.webp',cap:'Ideation'},{src:'images/drip/18.webp',cap:'Site map'}]},
-      {title:'Brand',imgs:[{src:'images/drip/19.webp',cap:'Brand strategy'},{src:'images/drip/20.webp',cap:'Positioning'},{src:'images/drip/21.webp',cap:'Tone of voice'},{src:'images/drip/04.webp',cap:'The mood system'},{src:'images/drip/22.webp',cap:'Anatomy of the mark and colours'},{src:'images/drip/23.webp',cap:'Typography and icons'}]},
-      {title:'Screens',imgs:[{src:'images/drip/29.webp',cap:'Onboarding'},{src:'images/drip/30.webp',cap:'Closet'},{src:'images/drip/31.webp',cap:'Today'},{src:'images/drip/32.webp',cap:'Friends'},{src:'images/drip/33.webp',cap:'Play'}]},
-      {title:'Brand in use',imgs:[{src:'images/drip/24.webp',cap:'App icon launch'},{src:'images/drip/03.webp',cap:'The app in hand'},{src:'images/drip/02.webp',cap:'Billboard'},{src:'images/drip/05.webp',cap:'T-shirt'},{src:'images/drip/25.webp',cap:'Socks'},{src:'images/drip/26.webp',cap:'Foldable'},{src:'images/drip/27.webp',cap:'Bus stop and tram'},{src:'images/drip/28.webp',cap:'Surfboard'},{src:'images/drip/34.webp',cap:'Social posts'}]},
-      {title:'Testing',imgs:[{src:'images/drip/35.webp',cap:'Usability testing plan'}]}
+      {title:'Introduction',imgs:[{src:'images/drip/01.webp',w:2880,h:1620,cap:'Drip, a wardrobe app that helps you walk in sure'},{src:'images/drip/02.webp',w:2883,h:1922,cap:'Billboard'},{src:'images/drip/03.webp',w:2880,h:1620,cap:'The app in hand'},{src:'images/drip/04.webp',w:2883,h:3460,cap:'The mood system'},{src:'images/drip/05.webp',w:2880,h:2160,cap:'T-shirt'}]},
+      {title:'Process',imgs:[{src:'images/drip/06.webp',w:2880,h:1620,cap:'Design process, six steps'},{src:'images/drip/07.webp',w:2880,h:1620,cap:'Project timeline'}]},
+      {title:'Discover',imgs:[{src:'images/drip/08.webp',w:2880,h:1620,cap:'The doubt is bigger than the outfit'},{src:'images/drip/09.webp',w:2880,h:1620,cap:'User journey map'},{src:'images/drip/10.webp',w:2880,h:1620,cap:'The problem and how Drip answers it'},{src:'images/drip/11.webp',w:2880,h:1620,cap:'Target audience'},{src:'images/drip/12.webp',w:2880,h:1620,cap:'Competitive analysis'},{src:'images/drip/13.webp',w:2880,h:1620,cap:'Stakeholder mapping, fashion professionals we interviewed'},{src:'images/drip/14.webp',w:2880,h:1620,cap:'Quantitative research'},{src:'images/drip/15.webp',w:2880,h:1620,cap:'Qualitative research, the interview questions'},{src:'images/drip/16.webp',w:2880,h:1620,cap:'Empathy mapping'}]},
+      {title:'Ideate and structure',imgs:[{src:'images/drip/17.webp',w:2880,h:1620,cap:'Ideation'},{src:'images/drip/18.webp',w:2880,h:1620,cap:'Site map'}]},
+      {title:'Brand',imgs:[{src:'images/drip/19.webp',w:2880,h:1620,cap:'Brand strategy'},{src:'images/drip/20.webp',w:2880,h:1620,cap:'Positioning'},{src:'images/drip/21.webp',w:2880,h:1620,cap:'Tone of voice'},{src:'images/drip/22.webp',w:3840,h:6040,cap:'Anatomy of the mark and colours'},{src:'images/drip/23.webp',w:2880,h:1620,cap:'Typography and icons'},{video:'images/drip/video/drip-logo-animation.mp4',poster:'images/drip/video/drip-logo-animation-poster.webp',cap:'Logo animation'}]},
+      {title:'Brand in use',imgs:[{src:'images/drip/24.webp',w:2880,h:1620,cap:'App icon launch'},{src:'images/drip/25.webp',w:2880,h:1620,cap:'Socks'},{src:'images/drip/26.webp',w:2880,h:1620,cap:'Foldable'},{src:'images/drip/27a.webp',w:2858,h:1910,cap:'Bus stop'},{src:'images/drip/27b.webp',w:2872,h:1910,cap:'Tram'},{src:'images/drip/28.webp',w:2880,h:1620,cap:'Surfboard'}]},
+      {title:'Screens',imgs:[{src:'images/drip/29.webp',w:2880,h:1620,cap:'Onboarding'},{src:'images/drip/30.webp',w:2880,h:1620,cap:'Closet'},{src:'images/drip/31.webp',w:2880,h:1620,cap:'Today'},{src:'images/drip/32.webp',w:2880,h:1620,cap:'Friends'},{src:'images/drip/33.webp',w:2880,h:1620,cap:'Play'},{video:'images/drip/video/drip-ui-walkthrough.mp4',poster:'images/drip/video/drip-ui-walkthrough-poster.webp',cap:'UI walkthrough'}]},
+      {title:'Social',imgs:[{src:'images/drip/34.webp',w:2880,h:1620,cap:'Social posts'}]},
+      {title:'Testing',imgs:[{src:'images/drip/35.webp',w:2880,h:1620,cap:'Usability testing plan'}]}
     ]
   },
   {
@@ -1004,7 +1007,7 @@ function caseHTML(p){
     <section class="cs"><p class="label">Process</p><div class="cs-body"><ol class="steps">${p.steps.map((s,k)=>`<li class="step"><i>/${String(k+1).padStart(2,'0')}</i><div><h4>${esc(s[0])}</h4><p>${esc(s[1])}</p></div></li>`).join('')}</ol></div></section>
     <section class="cs"><p class="label">Outcome</p><div class="cs-body"><p class="cs-lead">${esc(p.outcome)}</p><ol class="steps" style="margin-top:28px">${p.outcomeList.map((s,k)=>`<li class="step"><i>/${String(k+1).padStart(2,'0')}</i><div><p style="margin:0;color:var(--ink)">${esc(s)}</p></div></li>`).join('')}</ol></div></section>
     ${p.figs.length?`<section class="cs"><p class="label">Artifacts</p><div class="cs-body"><div class="figs" style="margin-top:0">${figs}</div></div></section>`:''}
-    ${(p.groups||[]).map(g=>`<section class="cs cs-wide"><p class="label">${esc(g.title)}</p><div class="slides">${g.imgs.map(im=>`<figure class="slide"><img src="${im.src}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"><figcaption>${esc(im.cap)}</figcaption></figure>`).join('')}</div></section>`).join('')}
+    ${(p.groups||[]).map(g=>`<section class="cs cs-wide"><p class="label">${esc(g.title)}</p><div class="slides">${g.imgs.map(im=>`${im.video?`<figure class="slide vid"><video src="${im.video}" poster="${im.poster}" controls muted loop playsinline preload="metadata"></video><figcaption>${esc(im.cap)}</figcaption></figure>`:`<figure class="slide"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"><figcaption>${esc(im.cap)}</figcaption></figure>`}`).join('')}</div></section>`).join('')}
   </div>
   <a class="next" href="#work-${nxt.id}" data-next="${nxt.id}" data-cursor="sm"><div class="next-in"><div><p class="label">Next project</p><h3 class="disp">${esc(nxt.title)}</h3></div><span class="arr" aria-hidden="true">&rarr;</span></div></a>`;
 }
@@ -1032,6 +1035,11 @@ function openCase(id,fromEl,push){
     }
   }
   setTimeout(()=>$('#caseClose').focus({preventScroll:true}),500);
+  if(window._vio)window._vio.disconnect();
+  if('IntersectionObserver' in window&&!reduce){
+    window._vio=new IntersectionObserver(es=>es.forEach(en=>{const v=en.target;if(en.isIntersecting){v.play().catch(()=>{})}else{v.pause()}}),{root:caseEl,threshold:.5});
+    $$('.slide video',caseInner).forEach(v=>window._vio.observe(v));
+  }
 }
 function finishClose(){
   caseEl.classList.remove('open');caseOpen=false;activeId=null;
