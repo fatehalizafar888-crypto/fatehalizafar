@@ -263,6 +263,10 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 .cs.cs-wide{grid-template-columns:1fr;gap:clamp(18px,3vh,30px)}
 .slides{display:grid;gap:clamp(12px,1.6vw,22px)}
 .slide{margin:0}
+.cs.cs-wide.bleed .slides{width:100vw;margin-left:calc(50% - 50vw);gap:0}
+.cs.cs-wide.bleed .slide img,.cs.cs-wide.bleed .slide video{display:block;width:100%;height:auto}
+.cs.cs-wide.bleed figcaption{display:none}
+
 .slide img{width:100%;height:auto;display:block;border-radius:16px;background:var(--panel);cursor:zoom-in}
 .slide video{width:100%;height:auto;display:block;border-radius:16px;background:#000;aspect-ratio:16/9}
 .slide figcaption{font-size:13.5px;color:var(--grey);margin-top:10px}
@@ -528,13 +532,14 @@ const PROJECTS = [
     overview:'Drip is a wardrobe app for university students, young professionals and people who love to style others. They share one problem: a full closet, three outfit changes and still no confidence. Drip turns the clothes you already own into outfits you believe in.',
     question:'',questionMore:'',steps:[],outcome:'',outcomeList:[],
     figs:[],
+    bleed:true,
     groups:[
-      {title:'Mockups',imgs:[{src:'images/drip/01.webp',w:2880,h:1620,cap:'Drip, a wardrobe app that helps you walk in sure'},{src:'images/drip/02.webp',w:2883,h:1922,cap:'Billboard'},{src:'images/drip/03.webp',w:2880,h:1620,cap:'The app in hand'},{src:'images/drip/05.webp',w:2880,h:2160,cap:'T-shirt'},{src:'images/drip/24.webp',w:2880,h:1620,cap:'App icon launch'},{src:'images/drip/25.webp',w:2880,h:1620,cap:'Socks'},{src:'images/drip/26.webp',w:2880,h:1620,cap:'Foldable'},{src:'images/drip/27a.webp',w:2858,h:1910,cap:'Bus stop'},{src:'images/drip/27b.webp',w:2872,h:1910,cap:'Tram'},{src:'images/drip/28.webp',w:2880,h:1620,cap:'Surfboard'},{src:'images/drip/34.webp',w:2880,h:1620,cap:'Social posts'}]},
-      {title:'Research',imgs:[{src:'images/drip/06.webp',w:2880,h:1620,cap:'Design process, six steps'},{src:'images/drip/07.webp',w:2880,h:1620,cap:'Project timeline'},{src:'images/drip/08.webp',w:2880,h:1620,cap:'The doubt is bigger than the outfit'},{src:'images/drip/09.webp',w:2880,h:1620,cap:'User journey map'},{src:'images/drip/10.webp',w:2880,h:1620,cap:'The problem and how Drip answers it'},{src:'images/drip/11.webp',w:2880,h:1620,cap:'Target audience'},{src:'images/drip/12.webp',w:2880,h:1620,cap:'Competitive analysis'},{src:'images/drip/13.webp',w:2880,h:1620,cap:'Stakeholder mapping, fashion professionals we interviewed'},{src:'images/drip/14.webp',w:2880,h:1620,cap:'Quantitative research'},{src:'images/drip/15.webp',w:2880,h:1620,cap:'Qualitative research, the interview questions'},{src:'images/drip/16.webp',w:2880,h:1620,cap:'Empathy mapping'}]},
-      {title:'Ideate and structure',imgs:[{src:'images/drip/17.webp',w:2880,h:1620,cap:'Ideation'},{src:'images/drip/18.webp',w:2880,h:1620,cap:'Site map'}]},
-      {title:'Brand',imgs:[{src:'images/drip/19.webp',w:2880,h:1620,cap:'Brand strategy'},{src:'images/drip/20.webp',w:2880,h:1620,cap:'Positioning'},{src:'images/drip/21.webp',w:2880,h:1620,cap:'Tone of voice'},{src:'images/drip/04.webp',w:2883,h:3460,cap:'The mood system'},{src:'images/drip/22.webp',w:3840,h:6040,cap:'Anatomy of the mark and colours'},{src:'images/drip/23.webp',w:2880,h:1620,cap:'Typography and icons'},{video:'images/drip/video/drip-logo-animation.mp4',poster:'images/drip/video/drip-logo-animation-poster.webp',cap:'Logo animation'}]},
-      {title:'Screens',imgs:[{src:'images/drip/29.webp',w:2880,h:1620,cap:'Onboarding'},{src:'images/drip/30.webp',w:2880,h:1620,cap:'Closet'},{src:'images/drip/31.webp',w:2880,h:1620,cap:'Today'},{src:'images/drip/32.webp',w:2880,h:1620,cap:'Friends'},{src:'images/drip/33.webp',w:2880,h:1620,cap:'Play'},{video:'images/drip/video/drip-ui-walkthrough.mp4',poster:'images/drip/video/drip-ui-walkthrough-poster.webp',cap:'UI walkthrough'}]},
-      {title:'Testing',imgs:[{src:'images/drip/35.webp',w:2880,h:1620,cap:'Usability testing plan'}]}
+      {title:'Mockups',imgs:[{src:'images/drip/01.webp',w:3840,h:2160,cap:'Drip, a wardrobe app that helps you walk in sure'},{src:'images/drip/02.webp',w:3844,h:2563,cap:'Billboard'},{src:'images/drip/03.webp',w:3840,h:2160,cap:'The app in hand'},{src:'images/drip/05.webp',w:3840,h:2880,cap:'T-shirt'},{src:'images/drip/24.webp',w:3840,h:2160,cap:'App icon launch'},{src:'images/drip/25.webp',w:3840,h:2160,cap:'Socks'},{src:'images/drip/26.webp',w:3840,h:2160,cap:'Foldable'},{src:'images/drip/27a.webp',w:4001,h:2675,cap:'Bus stop'},{src:'images/drip/27b.webp',w:4020,h:2675,cap:'Tram'},{src:'images/drip/28.webp',w:3840,h:2160,cap:'Surfboard'},{src:'images/drip/34.webp',w:3840,h:2160,cap:'Social posts'}]},
+      {title:'Research',imgs:[{src:'images/drip/06.webp',w:3840,h:2160,cap:'Design process, six steps'},{src:'images/drip/07.webp',w:3840,h:2160,cap:'Project timeline'},{src:'images/drip/08.webp',w:3840,h:2160,cap:'The doubt is bigger than the outfit'},{src:'images/drip/09.webp',w:3840,h:2160,cap:'User journey map'},{src:'images/drip/10.webp',w:3840,h:2160,cap:'The problem and how Drip answers it'},{src:'images/drip/11.webp',w:3840,h:2160,cap:'Target audience'},{src:'images/drip/12.webp',w:3840,h:2160,cap:'Competitive analysis'},{src:'images/drip/13.webp',w:3840,h:2160,cap:'Stakeholder mapping, fashion professionals we interviewed'},{src:'images/drip/14.webp',w:3840,h:2160,cap:'Quantitative research'},{src:'images/drip/15.webp',w:3840,h:2160,cap:'Qualitative research, the interview questions'},{src:'images/drip/16.webp',w:3840,h:2160,cap:'Empathy mapping'}]},
+      {title:'Ideate and structure',imgs:[{src:'images/drip/17.webp',w:3840,h:2160,cap:'Ideation'},{src:'images/drip/18.webp',w:3840,h:2160,cap:'Site map'}]},
+      {title:'Brand',imgs:[{src:'images/drip/19.webp',w:3840,h:2160,cap:'Brand strategy'},{src:'images/drip/20.webp',w:3840,h:2160,cap:'Positioning'},{src:'images/drip/21.webp',w:3840,h:2160,cap:'Tone of voice'},{src:'images/drip/04.webp',w:3844,h:4613,cap:'The mood system'},{src:'images/drip/22.webp',w:4800,h:7551,cap:'Anatomy of the mark and colours'},{src:'images/drip/23.webp',w:3840,h:2160,cap:'Typography and icons'},{video:'images/drip/video/drip-logo-animation.mp4',poster:'images/drip/video/drip-logo-animation-poster.webp',cap:'Logo animation'}]},
+      {title:'Screens',imgs:[{src:'images/drip/29.webp',w:3840,h:2160,cap:'Onboarding'},{src:'images/drip/30.webp',w:3840,h:2160,cap:'Closet'},{src:'images/drip/31.webp',w:3840,h:2160,cap:'Today'},{src:'images/drip/32.webp',w:3840,h:2160,cap:'Friends'},{src:'images/drip/33.webp',w:3840,h:2160,cap:'Play'},{video:'images/drip/video/drip-ui-walkthrough.mp4',poster:'images/drip/video/drip-ui-walkthrough-poster.webp',cap:'UI walkthrough'}]},
+      {title:'Testing',imgs:[{src:'images/drip/35.webp',w:3840,h:2160,cap:'Usability testing plan'}]}
     ]
   },
   {
@@ -554,7 +559,7 @@ const PROJECTS = [
       {src:'images/tafteesh/01.webp',w:3803,h:2323,wr:1,bg:'#ffffff',cap:'How to play'},
       {src:'images/tafteesh/03.webp',w:3839,h:2920,wr:1,bg:'#1a1a1a',cap:'Unresolved cases'},
       {src:'images/tafteesh/04.webp',w:3839,h:2920,wr:1,bg:'#1a1a1a',cap:'Case 01, Blackout'},
-      {src:'images/tafteesh/02.webp',w:1637,h:2323,wr:0.4264,bg:'#ffffff',cap:'Case file'},
+      {src:'images/tafteesh/02.webp',w:2783,h:3949,wr:0.72,bg:'#ffffff',cap:'Case file'},
       {src:'images/tafteesh/08.webp',w:3840,h:4757,wr:1,bg:'#1a1a1a',cap:'Game map, Model Town'},
       {src:'images/tafteesh/09.webp',w:3840,h:5254,wr:1,bg:'#ffffff',cap:'Key'},
       {src:'images/tafteesh/11.webp',w:3840,h:3678,wr:1,bg:'#1a1a1a',cap:'Killer sheet'},
@@ -1037,7 +1042,7 @@ function caseHTML(p){
     ${p.outcome?`<section class="cs"><p class="label">Outcome</p><div class="cs-body"><p class="cs-lead">${esc(p.outcome)}</p><ol class="steps" style="margin-top:28px">${p.outcomeList.map((s,k)=>`<li class="step"><i>/${String(k+1).padStart(2,'0')}</i><div><p style="margin:0;color:var(--ink)">${esc(s)}</p></div></li>`).join('')}</ol></div></section>`:''}
     ${p.figs.length?`<section class="cs"><p class="label">Artifacts</p><div class="cs-body"><div class="figs" style="margin-top:0">${figs}</div></div></section>`:''}
     ${(p.full||[]).length?`<div class="fsw">${p.full.map(im=>`<figure class="fs" style="background:${im.bg}"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"></figure>`).join('')}</div>`:''}
-    ${(p.groups||[]).map(g=>`<section class="cs cs-wide"><p class="label">${esc(g.title)}</p><div class="slides">${g.imgs.map(im=>`${im.video?`<figure class="slide vid"><video src="${im.video}" poster="${im.poster}" controls muted loop playsinline preload="metadata"></video><figcaption>${esc(im.cap)}</figcaption></figure>`:`<figure class="slide"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"><figcaption>${esc(im.cap)}</figcaption></figure>`}`).join('')}</div></section>`).join('')}
+    ${(p.groups||[]).map(g=>`<section class="cs cs-wide${p.bleed?' bleed':''}"><p class="label">${esc(g.title)}</p><div class="slides">${g.imgs.map(im=>`${im.video?`<figure class="slide vid"><video src="${im.video}" poster="${im.poster}" controls muted loop playsinline preload="metadata"></video><figcaption>${esc(im.cap)}</figcaption></figure>`:`<figure class="slide"><img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"><figcaption>${esc(im.cap)}</figcaption></figure>`}`).join('')}</div></section>`).join('')}
   </div>`}
   ${flow?`<div class="flow">${flow.slice(1).map(f=>band(f)).join('')}</div>`:''}
   <a class="next" href="#work-${nxt.id}" data-next="${nxt.id}" data-cursor="sm"><div class="next-in"><div><p class="label">Next project</p><h3 class="disp">${esc(nxt.title)}</h3></div><span class="arr" aria-hidden="true">&rarr;</span></div></a>`;
