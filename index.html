@@ -273,8 +273,9 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 /* ---------- case study overlay ---------- */
 #case{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;visibility:hidden}
 #case.open{visibility:visible}
-.case-close{position:fixed;top:18px;right:var(--pad);z-index:80;opacity:0;pointer-events:none;transition:opacity .5s .5s}
-#case.open .case-close{opacity:1;pointer-events:auto}
+.case-close,.case-back{position:fixed;top:18px;right:var(--pad);z-index:80;opacity:0;pointer-events:none;transition:opacity .5s .5s}
+.case-back{right:auto;left:var(--pad)}
+#case.open .case-close,#case.open .case-back{opacity:1;pointer-events:auto}
 .case-hero{position:relative;height:100svh;min-height:520px;overflow:hidden}
 .hero-art{position:absolute;inset:0}
 .case-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#000 4%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.1) 70%)}
@@ -473,6 +474,7 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 
 <div id="zoom" aria-hidden="true"><img alt=""></div>
 <article id="case" aria-label="Project" aria-hidden="true">
+  <button class="pill case-back" id="caseBack" data-cursor="sm" aria-label="Back"><span aria-hidden="true">&larr;</span> Back</button>
   <button class="pill case-close" id="caseClose" data-cursor="sm"><span class="burger" aria-hidden="true"><i></i><i></i></span>Close</button>
   <div id="caseInner"></div>
 </article>
@@ -525,6 +527,25 @@ const PROJECTS = [
     ]
   },
   {
+    id:'tafteesh-game', title:'Tafteesh', art:'tafteesh', cover:'images/tafteesh/16.webp',
+    hero:'images/tafteesh/16.webp',
+    hover:['images/tafteesh/17.webp','images/tafteesh/18.webp','images/tafteesh/19.webp','images/tafteesh/20.webp','images/tafteesh/22.webp'],
+    cats:['Branding','Product Design'], year:'2026',
+    role:'Game, brand and packaging design', type:'Crime investigation board game', tools:'Illustrator, Photoshop, Blender',
+    line:'Catch the killer on the Model Town map before he escapes.',
+    overview:'Tafteesh is a crime investigation board game set in Model Town, Lahore. A murder has happened and the players have to catch the killer on the map before he escapes. One player is the killer and moves in secret, the rest are a police officer, a detective and an analyst working from clues. Every case is a crime that already happened, and every case plays differently.',
+    question:'',questionMore:'',steps:[],outcome:'',outcomeList:[],
+    figs:[],
+    groups:[
+      {title:'Mockups',imgs:[{src:'images/tafteesh/16.webp',w:2880,h:1620,cap:'The box'},{src:'images/tafteesh/17.webp',w:2880,h:2160,cap:'Everything inside the box'},{src:'images/tafteesh/18.webp',w:2880,h:1620,cap:'The standees'},{src:'images/tafteesh/19.webp',w:2880,h:1620,cap:'The lid in the dark'},{src:'images/tafteesh/20.webp',w:2880,h:1620,cap:'Rulebook and case cards'},{src:'images/tafteesh/21.webp',w:2880,h:1620,cap:'Base of the box'},{src:'images/tafteesh/22.webp',w:2880,h:1621,cap:'Opened box'}]},
+      {title:'The game',imgs:[{src:'images/tafteesh/05.webp',w:2880,h:2218,cap:'Tafteesh'},{src:'images/tafteesh/06.webp',w:2880,h:2242,cap:'What is Tafteesh'},{src:'images/tafteesh/07.webp',w:2880,h:3981,cap:'Players and characters'},{src:'images/tafteesh/08.webp',w:2880,h:3568,cap:'Game map, Model Town'},{src:'images/tafteesh/09.webp',w:2880,h:3941,cap:'Key'}]},
+      {title:'Cases',imgs:[{src:'images/tafteesh/03.webp',w:2880,h:2190,cap:'Unresolved cases'},{src:'images/tafteesh/04.webp',w:2880,h:2190,cap:'Case 01, Blackout'},{src:'images/tafteesh/02.webp',w:1234,h:1750,cap:'Case file'},{src:'images/tafteesh/11.webp',w:2880,h:2759,cap:'Killer sheet'}]},
+      {title:'How to play',imgs:[{src:'images/tafteesh/01.webp',w:2866,h:1750,cap:'How to play'},{src:'images/tafteesh/12.webp',w:2880,h:2904,cap:'Rulebook and story'}]},
+      {title:'Brand',imgs:[{src:'images/tafteesh/10.webp',w:2880,h:2240,cap:'Typeface, made only for this game'}]},
+      {title:'Packaging',imgs:[{src:'images/tafteesh/13.webp',w:2880,h:3023,cap:'Lid wrap'},{src:'images/tafteesh/14.webp',w:2880,h:3021,cap:'Base wrap'}]}
+    ]
+  },
+  {
     id:'atom-daily', title:'ATOM Daily', art:'atom', cover:null,
     cats:['Branding'], year:'2026',
     role:'Brand identity and illustration', type:'Brand identity', tools:'Illustrator',
@@ -551,7 +572,7 @@ const PROJECTS = [
     ]
   },
   {
-    id:'tafteesh', title:'Tafteesh', art:'tafteesh', cover:null,
+    id:'tafteesh', title:'Tafteesh Data', art:'tafteesh', cover:null,
     cats:['Experiments'], year:'2026',
     role:'Researcher and information designer', type:'Data visualisation', tools:'Figma',
     line:'Who gets found faster? A national look at child safety cases.',
@@ -655,7 +676,7 @@ const TIMELINE = [
   { year:'2023', title:'Add your 2023 projects', text:'Tell me what you made this year and I will write it up here, with links to the projects.', todo:true },
   { year:'2024', title:'Add your 2024 projects', text:'Tell me what you made this year and I will write it up here, with links to the projects.', todo:true },
   { year:'2025', title:'Add your 2025 projects', text:'Tell me what you made this year and I will write it up here, with links to the projects.', todo:true },
-  { year:'2026', title:'Graduated and kept building', text:'Finished the degree at BNU and kept going: research projects, a brand identity, Drip, a wardrobe app, and a social voice for a juice brand.', links:['drip','atom-daily','tafteesh','two-grounds-one-field','the-message','fruit-ninja'] }
+  { year:'2026', title:'Graduated and kept building', text:'Finished the degree at BNU and kept going: research projects, a brand identity, Drip, a wardrobe app, and a social voice for a juice brand.', links:['drip','tafteesh-game','atom-daily','tafteesh','two-grounds-one-field','the-message','fruit-ninja'] }
 ];
 
 /* ==========================================================
@@ -1035,7 +1056,13 @@ function doClose(){
   const a=caseEl.animate([{clipPath:'inset(0px 0px 0px 0px round 0px)'},{clipPath:clipFor(rect)}],{duration:800,easing:'cubic-bezier(.7,0,.2,1)',fill:'forwards'});
   a.onfinish=()=>{finishClose();a.cancel()};
 }
-$('#caseClose').addEventListener('click',()=>{if(history.state&&history.state.case)history.back();else doClose()});
+const goBack=()=>{if(history.state&&history.state.case)history.back();else doClose()};
+$('#caseClose').addEventListener('click',goBack);
+$('#caseBack').addEventListener('click',goBack);
+/* swipe right from the left edge goes back (touch devices) */
+let _sx=null,_sy=0;
+caseEl.addEventListener('touchstart',e=>{const t=e.touches[0];_sx=t.clientX<40?t.clientX:null;_sy=t.clientY},{passive:true});
+caseEl.addEventListener('touchend',e=>{if(_sx===null)return;const t=e.changedTouches[0];if(t.clientX-_sx>80&&Math.abs(t.clientY-_sy)<60)goBack();_sx=null},{passive:true});
 /* if history is unavailable (sandboxed preview), also close directly */
 caseEl.addEventListener('click',e=>{
   const n=e.target.closest('[data-next]');
