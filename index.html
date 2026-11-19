@@ -278,6 +278,7 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 #case.open .case-close,#case.open .case-back{opacity:1;pointer-events:auto}
 .sl{position:relative}
 .sf{margin:0;display:flex;justify-content:center;background-image:url(images/tafteesh/map.png);background-size:97.8vw auto;background-position:50% 0;background-repeat:repeat}
+.sf.vf iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
 .sf img{display:block;height:auto;cursor:zoom-in}
 .case-hero{position:relative;height:100svh;min-height:520px;overflow:hidden}
 .hero-art{position:absolute;inset:0}
@@ -549,6 +550,7 @@ const PROJECTS = [
     slides:[{src:'images/tafteesh/05.webp',w:3884,h:2990,wr:1,bg:'#1a1a1a',cap:'Tafteesh'},
       {src:'images/tafteesh/06.webp',w:3839,h:2988,wr:1,bg:'#1a1a1a',cap:'What is Tafteesh'},
       {src:'images/tafteesh/07.webp',w:3849,h:5321,wr:1,bg:'#ffffff',cap:'Players and characters'},
+      {drive:'1W17f9zNh6OHzCPc5peW31Sj3C7YfP8Gc',live:false,bg:'#1a1a1a',cap:'Tafteesh logo animation'},
       {src:'images/tafteesh/01.webp',w:3803,h:2323,wr:1,bg:'#ffffff',cap:'How to play'},
       {src:'images/tafteesh/03.webp',w:3839,h:2920,wr:1,bg:'#1a1a1a',cap:'Unresolved cases'},
       {src:'images/tafteesh/04.webp',w:3839,h:2920,wr:1,bg:'#1a1a1a',cap:'Case 01, Blackout'},
@@ -557,6 +559,7 @@ const PROJECTS = [
       {src:'images/tafteesh/09.webp',w:3840,h:5254,wr:1,bg:'#ffffff',cap:'Key'},
       {src:'images/tafteesh/11.webp',w:3840,h:3678,wr:1,bg:'#1a1a1a',cap:'Killer sheet'},
       {src:'images/tafteesh/12.webp',w:3840,h:3872,wr:1,bg:'#ffffff',cap:'Rulebook and story'},
+      {drive:'1fshaKu4nyqghwaiyuHDnW7lI43Zv9TKA',live:false,bg:'#ffffff',cap:'Tafteesh rulebook animation'},
       {src:'images/tafteesh/10.webp',w:3840,h:2987,wr:1,bg:'#e82329',cap:'Typeface'},
       {src:'images/tafteesh/13.webp',w:3840,h:4031,wr:1,bg:'#ffffff',cap:'Lid wrap'},
       {src:'images/tafteesh/14.webp',w:3840,h:4028,wr:1,bg:'#ffffff',cap:'Base wrap'},
@@ -1013,7 +1016,7 @@ function caseHTML(p){
   const band=(f,cls)=>`<div class="flow-band${cls||''}" style="background:${f.bg};--ar:${(f.w/f.h).toFixed(3)}">${f.video?`<video src="${f.video}" poster="${f.poster}" controls muted loop playsinline preload="metadata"></video>`:`<img src="${f.src}" width="${f.w}" height="${f.h}" alt="" loading="lazy" decoding="async" data-zoom="${f.src}">`}</div>`;
   const flow=p.flow||null,sl=p.slides||null;
   return `
-  ${sl?`<div id="heroArt" class="sl">${sl.map(f=>`<figure class="sf" style="background-color:${f.bg}"><img src="${f.src}" width="${f.w}" height="${f.h}" style="width:${f.wr*100}%" alt="${esc(f.cap)}" decoding="async" data-zoom="${f.src}"${sl.indexOf(f)>1?' loading="lazy"':''}></figure>`).join('')}</div>`:flow?`<div id="heroArt" class="flow-cover">${band(flow[0])}</div>`:`<div class="case-hero">
+  ${sl?`<div id="heroArt" class="sl">${sl.filter(f=>f.live!==false).map(f=>f.drive?`<figure class="sf vf" style="background-color:${f.bg}"><iframe src="https://drive.google.com/file/d/${f.drive}/preview" title="${esc(f.cap)}" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></figure>`:`<figure class="sf" style="background-color:${f.bg}"><img src="${f.src}" width="${f.w}" height="${f.h}" style="width:${f.wr*100}%" alt="${esc(f.cap)}" decoding="async" data-zoom="${f.src}"${sl.indexOf(f)>1?' loading="lazy"':''}></figure>`).join('')}</div>`:flow?`<div id="heroArt" class="flow-cover">${band(flow[0])}</div>`:`<div class="case-hero">
     <div class="hero-art" id="heroArt">${heroArt(p)}</div>
     <div class="case-hero-in">
       <div class="case-cats">${p.cats.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}<span class="chip">${esc(p.year)}</span></div>
