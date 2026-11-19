@@ -257,6 +257,18 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--dim);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
 .foot a:hover{color:var(--ink)}
 
+/* ---------- card hover images + slides ---------- */
+.card .art img.hv{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.card .art img.hv.on{opacity:1}
+.cs.cs-wide{grid-template-columns:1fr;gap:clamp(18px,3vh,30px)}
+.slides{display:grid;gap:clamp(12px,1.6vw,22px)}
+.slide{margin:0}
+.slide img{width:100%;height:auto;display:block;border-radius:16px;background:var(--panel);cursor:zoom-in}
+.slide figcaption{font-size:13.5px;color:var(--grey);margin-top:10px}
+#zoom{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.92);display:none;overflow:auto;cursor:zoom-out}
+#zoom.on{display:block}
+#zoom img{display:block;margin:0 auto;max-width:100%;max-height:100svh;object-fit:contain;cursor:zoom-in}
+#zoom.full img{max-width:none;max-height:none;width:2880px;cursor:zoom-out}
 /* ---------- case study overlay ---------- */
 #case{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;visibility:hidden}
 #case.open{visibility:visible}
@@ -458,6 +470,7 @@ body.ready .hero-title .line:nth-child(2)>span{transition-delay:.12s}
   </section>
 </main>
 
+<div id="zoom" aria-hidden="true"><img alt=""></div>
 <article id="case" aria-label="Project" aria-hidden="true">
   <button class="pill case-close" id="caseClose" data-cursor="sm"><span class="burger" aria-hidden="true"><i></i><i></i></span>Close</button>
   <div id="caseInner"></div>
@@ -492,30 +505,40 @@ const SITE = {
    In figs, set src:'images/name.jpg' to replace a placeholder frame. */
 const PROJECTS = [
   {
-    id:'wardo', title:'Wardo', art:'wardo', cover:null,
-    cats:['Product Design','UX Case Studies'], year:'2026',
-    role:'Brand, UX and UI', type:'Mobile app', tools:'Figma',
-    line:'A wardrobe app that helps you trust what you are wearing.',
-    overview:'Wardo is a wardrobe app for people aged 18 to 34, mostly university students and young office workers who want to walk into a presentation, an interview or a party feeling sure about their outfit.',
-    question:'Most people already own enough clothes. What they lack is the confidence that an outfit works. So the question became: how might we help someone feel sure, before they leave the house?',
-    questionMore:'The insight came from lived experience. People rewear a few hero pieces, borrow ideas from campus, friends and films, and still worry that others will think the outfit does not look good.',
+    id:'drip', title:'Drip', art:'wardo', cover:'images/drip/24-card.webp',
+    hero:'images/drip/05.webp',
+    hover:['images/drip/02-card.webp','images/drip/03-card.webp','images/drip/05-card.webp','images/drip/25-card.webp','images/drip/26-card.webp','images/drip/27-card.webp','images/drip/28-card.webp'],
+    cats:['UX Case Studies','Branding','Product Design'], year:'2026',
+    role:'Branding, UX research and UI', type:'Mobile app and brand identity', tools:'Figma, Illustrator, Photoshop',
+    line:'Wear it like you meant it. A wardrobe app that helps you walk in sure.',
+    overview:'Drip is a wardrobe app for 18 to 34 year olds who care how they look and hate overthinking it. It helps you wear the clothes you already own with more confidence.',
+    question:'Most of us do not lack clothes. We lack the nerve. So the question became: how might we help someone feel sure about an outfit before they leave the house?',
+    questionMore:'The research said the same. 83% of 16 to 24 year olds feel pressure to look perfect on social media, and people buy 400% more clothes than 20 years ago, yet many still feel they have nothing to wear. We guess half of people notice our outfit. In a classic study only about a quarter did.',
     steps:[
-      ['Discovery and personas','Art, fashion and design students, plus young office workers. Different lives, one shared worry about being judged on what they wear.'],
-      ['Brief and research','A creative brief and research to set the tone, the audience and what the app must never feel like.'],
-      ['Stylescapes and brand','A visual direction for the name, colour and type before any screen was drawn.'],
-      ['Features and flows','From the first idea to mapped flows: trying outfits, planning days and asking for a second opinion.']
+      ['Research','Stakeholder mapping, interviews with a fashion stylist, two trend forecasters and a fashion designer, and secondary research on how Gen Z feels about what they wear. Then an empathy map and a journey map for Sarah, a 28 year old marketing manager.'],
+      ['Architecture','An ideation session on sticky notes, then a site map with four main tabs: Home, Try on, Closet and Profile.'],
+      ['Wireframing','Low and mid fidelity screens to test the flow before any style.'],
+      ['Visual design','A brand built around a face. The DRIP wordmark has eyes and brows that act as a mood system, with a navy led palette, Clash Grotesk and a neat icon set.'],
+      ['Prototyping','An interactive prototype with small motion, covering onboarding, closet, today, friends and play.'],
+      ['Testing','A moderated test plan with 5 to 8 students and young professionals across 4 core journeys. Targets are 90% success or more, 10% drop off or less and 25% misclicks or less. Results will go in once the sessions are run.']
     ],
-    outcome:'A concept built around confidence, not consumption.',
+    outcome:'An app that gives you a friendly second opinion before you step out.',
     outcomeList:[
-      'Mix and match, with a height matched avatar to try outfits, shoes and jewellery',
-      'A weather based outfit schedule and an outfit calendar open to community comments',
-      'Occasion tags for casual, formal and party',
-      'A styling game: style someone else\'s wardrobe, they award points, and badges unlock earning'
+      'Closet: lay a piece flat, it gets cut out automatically, and you see its wear count and history',
+      'Today: one outfit built from what you own, picked for your day, the weather and the occasion, with mix and match to swap a piece',
+      'Friends: send a look to friends or a stylist and see the votes and quick replies at a glance',
+      'Play: streaks, small goals, badges and a closet report that shows what you wear and what you do not',
+      'A brand with a face: eyes and brows that change mood, from confident to nervous'
     ],
-    figs:[
-      {cap:'Brand direction and stylescapes', wide:true},
-      {cap:'Avatar and outfit builder'},
-      {cap:'Outfit calendar and community'}
+    figs:[],
+    groups:[
+      {title:'Process',imgs:[{src:'images/drip/06.webp',cap:'Design process, six steps'},{src:'images/drip/07.webp',cap:'Project timeline'}]},
+      {title:'Discover',imgs:[{src:'images/drip/08.webp',cap:'The doubt is bigger than the outfit'},{src:'images/drip/13.webp',cap:'Stakeholder mapping, fashion professionals we interviewed'},{src:'images/drip/14.webp',cap:'Quantitative research'},{src:'images/drip/15.webp',cap:'Qualitative research, the interview questions'},{src:'images/drip/16.webp',cap:'Empathy mapping'},{src:'images/drip/09.webp',cap:'User journey map'},{src:'images/drip/11.webp',cap:'Target audience'},{src:'images/drip/12.webp',cap:'Competitive analysis'},{src:'images/drip/10.webp',cap:'The problem and how Drip answers it'}]},
+      {title:'Ideate and structure',imgs:[{src:'images/drip/17.webp',cap:'Ideation'},{src:'images/drip/18.webp',cap:'Site map'}]},
+      {title:'Brand',imgs:[{src:'images/drip/19.webp',cap:'Brand strategy'},{src:'images/drip/20.webp',cap:'Positioning'},{src:'images/drip/21.webp',cap:'Tone of voice'},{src:'images/drip/04.webp',cap:'The mood system'},{src:'images/drip/22.webp',cap:'Anatomy of the mark and colours'},{src:'images/drip/23.webp',cap:'Typography and icons'}]},
+      {title:'Screens',imgs:[{src:'images/drip/29.webp',cap:'Onboarding'},{src:'images/drip/30.webp',cap:'Closet'},{src:'images/drip/31.webp',cap:'Today'},{src:'images/drip/32.webp',cap:'Friends'},{src:'images/drip/33.webp',cap:'Play'}]},
+      {title:'Brand in use',imgs:[{src:'images/drip/24.webp',cap:'App icon launch'},{src:'images/drip/03.webp',cap:'The app in hand'},{src:'images/drip/02.webp',cap:'Billboard'},{src:'images/drip/05.webp',cap:'T-shirt'},{src:'images/drip/25.webp',cap:'Socks'},{src:'images/drip/26.webp',cap:'Foldable'},{src:'images/drip/27.webp',cap:'Bus stop and tram'},{src:'images/drip/28.webp',cap:'Surfboard'},{src:'images/drip/34.webp',cap:'Social posts'}]},
+      {title:'Testing',imgs:[{src:'images/drip/35.webp',cap:'Usability testing plan'}]}
     ]
   },
   {
@@ -649,7 +672,7 @@ const TIMELINE = [
   { year:'2023', title:'Add your 2023 projects', text:'Tell me what you made this year and I will write it up here, with links to the projects.', todo:true },
   { year:'2024', title:'Add your 2024 projects', text:'Tell me what you made this year and I will write it up here, with links to the projects.', todo:true },
   { year:'2025', title:'Add your 2025 projects', text:'Tell me what you made this year and I will write it up here, with links to the projects.', todo:true },
-  { year:'2026', title:'Graduated and kept building', text:'Finished the degree at BNU and kept going: research projects, a brand identity, a wardrobe app and a social voice for a juice brand.', links:['wardo','atom-daily','tafteesh','two-grounds-one-field','the-message','fruit-ninja'] }
+  { year:'2026', title:'Graduated and kept building', text:'Finished the degree at BNU and kept going: research projects, a brand identity, Drip, a wardrobe app, and a social voice for a juice brand.', links:['drip','atom-daily','tafteesh','two-grounds-one-field','the-message','fruit-ninja'] }
 ];
 
 /* ==========================================================
@@ -716,7 +739,12 @@ function art(kind){
   }
   return open+s+'</svg>';
 }
-function cover(p){return p.cover?`<img src="${p.cover}" alt="" loading="lazy">`:art(p.art)}
+function cover(p){
+  if(!p.cover)return art(p.art);
+  const hv=(p.hover||[]).map(u=>`<img class="hv" src="${u}" alt="" loading="lazy" decoding="async">`).join('');
+  return `<img class="base" src="${p.cover}" alt="" loading="lazy" decoding="async">${hv}`;
+}
+function heroArt(p){return p.hero?`<img src="${p.hero}" alt="">`:(p.cover?`<img src="${p.cover}" alt="">`:art(p.art))}
 
 /* ==========================================================
    App
@@ -896,6 +924,37 @@ function observeCards(){$$('.card',grid).forEach(c=>cardIO.observe(c))}
 grid.addEventListener('click',e=>{const c=e.target.closest('.card');if(c)openCase(c.dataset.id,c,true)});
 grid.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('card')){e.preventDefault();openCase(e.target.dataset.id,e.target,true)}});
 renderTabs();renderGrid();
+/* card hover: cycle through mockups only */
+(function(){
+  let timer=null,cur=null;
+  function stop(card){clearInterval(timer);timer=null;if(card)card.querySelectorAll('.hv').forEach(i=>i.classList.remove('on'))}
+  grid.addEventListener('pointerover',e=>{
+    if(e.pointerType==='touch'||reduce)return;
+    const c=e.target.closest('.card');if(!c||c===cur)return;
+    if(cur)stop(cur);
+    cur=c;const hv=[...c.querySelectorAll('.hv')];if(!hv.length)return;
+    let i=0;hv[0].classList.add('on');
+    timer=setInterval(()=>{hv[i].classList.remove('on');i=(i+1)%hv.length;hv[i].classList.add('on')},1100);
+  });
+  grid.addEventListener('pointerout',e=>{
+    const c=e.target.closest('.card');if(!c||c!==cur)return;
+    if(e.relatedTarget&&c.contains(e.relatedTarget))return;
+    stop(c);cur=null;
+  });
+})();
+/* zoom on case study slides */
+(function(){
+  const z=document.getElementById('zoom'),zi=z.querySelector('img');
+  document.addEventListener('click',e=>{
+    const im=e.target.closest('[data-zoom]');
+    if(im){zi.src=im.dataset.zoom;z.classList.remove('full');z.classList.add('on');z.setAttribute('aria-hidden','false');return}
+    if(e.target.closest('#zoom')){
+      if(!z.classList.contains('full')&&e.target===zi){z.classList.add('full');return}
+      z.classList.remove('on','full');z.setAttribute('aria-hidden','true');
+    }
+  });
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&z.classList.contains('on')){e.stopPropagation();z.classList.remove('on','full')}},true);
+})();
 
 /* ---------- generic reveal ---------- */
 const rvIO=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');rvIO.unobserve(en.target)}}),{threshold:.15});
@@ -926,7 +985,7 @@ function caseHTML(p){
   const figs=p.figs.map((f,k)=>`<figure class="fig${f.wide?' wide':''}"><div class="frame${f.src?'':' ph'}">${f.src?`<img src="${f.src}" alt="${esc(f.cap)}" loading="lazy">`:`<span class="ph-t">Image ${String(k+1).padStart(2,'0')}</span>`}</div><figcaption><b>Fig. ${String(k+1).padStart(2,'0')}</b>${esc(f.cap)}</figcaption></figure>`).join('');
   return `
   <div class="case-hero">
-    <div class="hero-art" id="heroArt">${cover(p)}</div>
+    <div class="hero-art" id="heroArt">${heroArt(p)}</div>
     <div class="case-hero-in">
       <div class="case-cats">${p.cats.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}<span class="chip">${esc(p.year)}</span></div>
       <h2 class="case-title disp">${lines.map(l=>`<span class="ln"><span>${esc(l)}</span></span>`).join('')}</h2>
@@ -944,7 +1003,8 @@ function caseHTML(p){
     <section class="cs"><p class="label">The question</p><div class="cs-body"><p class="cs-lead">${esc(p.question)}</p><p>${esc(p.questionMore)}</p></div></section>
     <section class="cs"><p class="label">Process</p><div class="cs-body"><ol class="steps">${p.steps.map((s,k)=>`<li class="step"><i>/${String(k+1).padStart(2,'0')}</i><div><h4>${esc(s[0])}</h4><p>${esc(s[1])}</p></div></li>`).join('')}</ol></div></section>
     <section class="cs"><p class="label">Outcome</p><div class="cs-body"><p class="cs-lead">${esc(p.outcome)}</p><ol class="steps" style="margin-top:28px">${p.outcomeList.map((s,k)=>`<li class="step"><i>/${String(k+1).padStart(2,'0')}</i><div><p style="margin:0;color:var(--ink)">${esc(s)}</p></div></li>`).join('')}</ol></div></section>
-    <section class="cs"><p class="label">Artifacts</p><div class="cs-body"><div class="figs" style="margin-top:0">${figs}</div></div></section>
+    ${p.figs.length?`<section class="cs"><p class="label">Artifacts</p><div class="cs-body"><div class="figs" style="margin-top:0">${figs}</div></div></section>`:''}
+    ${(p.groups||[]).map(g=>`<section class="cs cs-wide"><p class="label">${esc(g.title)}</p><div class="slides">${g.imgs.map(im=>`<figure class="slide"><img src="${im.src}" alt="${esc(im.cap)}" loading="lazy" decoding="async" data-zoom="${im.src}"><figcaption>${esc(im.cap)}</figcaption></figure>`).join('')}</div></section>`).join('')}
   </div>
   <a class="next" href="#work-${nxt.id}" data-next="${nxt.id}" data-cursor="sm"><div class="next-in"><div><p class="label">Next project</p><h3 class="disp">${esc(nxt.title)}</h3></div><span class="arr" aria-hidden="true">&rarr;</span></div></a>`;
 }
