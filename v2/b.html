@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fateh Ali Zafar | Option B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--disp:'Inter Tight',Inter,system-ui,sans-serif;--bg:#0b0b0b;--ink:#f3f3f1;--grey:#a6a6a2;--dim:#5f5f5c;--line:#232323;--pad:clamp(20px,4vw,56px);--out:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;height:100svh}
+a{color:inherit;text-decoration:none}.h{font-family:var(--disp);font-weight:600;letter-spacing:-.04em;line-height:.96}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px}.brand svg{width:30px;height:30px}
+.links{display:flex;gap:34px;font-size:14px;color:var(--grey)}.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;border-radius:999px;font-size:14px;font-weight:500;transition:all .3s}
+.btn.w{background:var(--ink);color:#0b0b0b}.btn.o{border:1px solid #3a3a3a}.btn.o:hover{border-color:var(--ink)}
+.avail{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--grey)}.avail i{width:8px;height:8px;border-radius:50%;background:#3ddc84}
+.lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.up{opacity:0;transform:translateY(30px);animation:up 1.2s var(--out) forwards}@keyframes up{to{opacity:1;transform:none}}
+.switch{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;gap:6px;background:rgba(30,30,30,.85);backdrop-filter:blur(10px);padding:6px;border-radius:999px;font-size:12px}
+.switch a{padding:8px 14px;border-radius:999px;color:var(--grey)}.switch a.on{background:var(--ink);color:#0b0b0b}
+@media(max-width:900px){.links{display:none}}
+
+.hero{height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 var(--pad);gap:40px}
+.intro p{color:var(--grey);max-width:34ch;margin-top:22px}
+.list{list-style:none;border-top:1px solid var(--line)}.list li{border-bottom:1px solid var(--line)}
+.list a{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;font-family:var(--disp);font-weight:600;font-size:clamp(2rem,4.4vw,4.6rem);letter-spacing:-.04em;line-height:1;color:var(--dim);transition:color .4s,padding .5s var(--out)}
+.list a span{font:500 13px Inter;letter-spacing:0;color:var(--dim)}
+.list a:hover{color:var(--ink);padding-left:16px}
+#peek{position:fixed;left:0;top:0;width:340px;aspect-ratio:4/3;border-radius:12px;background-size:cover;background-position:center 30%;pointer-events:none;z-index:40;opacity:0;transform:translate(-115%,-50%) scale(.85) rotate(-4deg);transition:opacity .35s,transform .5s var(--out)}
+#peek.on{opacity:1;transform:translate(-115%,-50%) scale(1) rotate(-3deg)}</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs><g id="mark"><path d="M 343.3 377.2 L 323.1 431.9 L 231.5 431.9 L 202.5 494.5 L 147.8 494.5 L 231.2 314.6 L 286 314.6 L 256.9 377.2 Z"/><path d="M 340.7 314.6 L 286 314.6 L 267.7 252 L 322.5 252 Z"/><path d="M 395.5 494.5 L 340.7 494.5 L 322.5 431.9 L 377.2 431.9 Z"/></g></defs></svg>
+<nav><a class="brand" href="#"><svg viewBox="147 251 249.5 245" fill="currentColor"><use href="#mark"/></svg>Fateh Ali Zafar</a><div class="links"><a href="#">Work</a><a href="#">Experiments</a><a href="#">About</a></div><a class="btn w" href="mailto:fatehalizafar888@gmail.com">Let's talk &rarr;</a></nav>
+
+<section class="hero"><div class="intro"><p class="lab up">Fateh Ali Zafar · Designer, Lahore</p><h1 class="h up" style="font-size:clamp(2.4rem,4.6vw,5rem);margin-top:22px;animation-delay:.1s">Research first.<br>Then design that moves.</h1>
+<p class="up" style="animation-delay:.2s">Hover a discipline to see the work.</p><div class="up" style="margin-top:30px;animation-delay:.3s"><span class="avail"><i></i>Open to full time and freelance</span></div></div>
+<ul class="list up" style="animation-delay:.2s">
+<li><a href="#" data-img="../images/immersive-gaming/m04-card.webp">Brand identity<span>01</span></a></li>
+<li><a href="#" data-img="../images/immersive-gaming/m03-card.webp">UX and UI<span>02</span></a></li>
+<li><a href="#" data-img="../images/immersive-gaming/video/ig-ui-motion-poster.webp">Motion<span>03</span></a></li>
+<li><a href="#" data-img="../images/tafteesh/16.webp">Publication<span>04</span></a></li></ul></section><div id="peek"></div>
+<script>const pk=document.getElementById('peek');let x=0,y=0,cx=0,cy=0;addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY});(function f(){cx+=(x-cx)*.15;cy+=(y-cy)*.15;pk.style.left=cx+'px';pk.style.top=cy+'px';requestAnimationFrame(f)})();
+document.querySelectorAll('.list a').forEach(a=>{a.onmouseenter=()=>{pk.style.backgroundImage=`url(${a.dataset.img})`;pk.classList.add('on')};a.onmouseleave=()=>pk.classList.remove('on')})</script>
+<div class="switch"><a href="a.html" class="">A · Statement</a><a href="b.html" class="on">B · Hover list</a><a href="c.html" class="">C · Featured project</a><a href="d.html" class="">D · Portrait</a></div></body></html>
