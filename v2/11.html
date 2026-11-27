@@ -19,7 +19,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .px{display:inline-block;vertical-align:middle;transition:transform .4s var(--out)}
 a:hover .px{transform:translateX(5px)}
 
-.bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);transition:transform .6s var(--out),background .4s}
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:clamp(26px,3vw,40px) var(--pad) 22px;transition:transform .6s,padding .4s var(--out),background .4s}
 .bar.hide{transform:translateY(-110%)}.bar.solid{background:rgba(9,9,9,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .bar .brand{display:flex}.bar .r a{opacity:.75;transition:opacity .3s}.bar .r a:hover{opacity:1}
 .bar .r{justify-self:end;display:flex;gap:26px;white-space:nowrap}
@@ -92,6 +92,21 @@ h1 .dim{color:var(--dim)}
 .ctl .allb{width:auto!important;padding:0 20px;border-radius:999px!important;gap:10px;display:inline-flex!important;align-items:center;margin-right:14px;font-size:12px}
 .ctl button{width:48px;height:48px;border-radius:50%;border:1px solid #333;background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:border-color .3s,background .3s,color .3s}
 .ctl button:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bar.solid{padding-top:18px;padding-bottom:18px}
+.mb{margin-left:auto;display:flex;align-items:center;gap:12px;background:none;border:1px solid rgba(242,241,236,.25);border-radius:999px;padding:11px 18px;color:inherit;font:12px GMono;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,border-color .3s;position:relative;z-index:2}
+.mb:hover{background:#f2f1ec;color:#0d0d0d}
+.mb i{display:block;width:16px;height:1.5px;background:currentColor;transition:transform .45s var(--out)}
+.mb i+i{margin-left:-28px;transform:translateY(5px)}.mb i:first-of-type{transform:translateY(-1px)}
+.mb[aria-expanded=true] i:first-of-type{transform:rotate(45deg)}.mb[aria-expanded=true] i+i{transform:rotate(-45deg)}
+.mn{position:fixed;inset:0;z-index:45;background:#0b0b0b;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--pad) 40px;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--out)}
+.mn.open{clip-path:inset(0)}
+.mn nav a{display:block;font-size:clamp(48px,8vw,132px);letter-spacing:-.06em;line-height:.95;overflow:hidden;color:#f2f1ec}
+.mn nav a span{display:inline-block;transform:translateY(105%);transition:transform .8s var(--out)}
+.mn.open nav a span{transform:none}
+.mn nav a:nth-child(2) span{transition-delay:.05s}.mn nav a:nth-child(3) span{transition-delay:.1s}.mn nav a:nth-child(4) span{transition-delay:.15s}
+.mn nav a:hover{color:#7a7974}
+.mn .ft{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:6vh;border-top:1px solid #262626;padding-top:20px;color:#8a8984}
+.mn .ft a:hover{color:#f2f1ec}.mn .ft div{display:flex;gap:22px}
 /* all work overlay */
 .aw{position:fixed;inset:0;z-index:80;background:#f2f1ec;color:#0d0d0d;display:flex;flex-direction:column;clip-path:inset(0 0 100% 0);transition:clip-path .9s var(--out);overflow:hidden}
 .aw.open{clip-path:inset(0 0 0 0)}
@@ -141,9 +156,9 @@ h1 .dim{color:var(--dim)}
 </style>
 </head>
 <body>
-<header class="bar mono" id="bar">
-  <a class="brand" href="#top" aria-label="Fateh Ali Zafar, home"><svg viewBox="147 251 249.5 245" width="30" height="30" fill="currentColor"><path d="M 343.3 377.2 L 323.1 431.9 L 231.5 431.9 L 202.5 494.5 L 147.8 494.5 L 231.2 314.6 L 286 314.6 L 256.9 377.2 Z"/><path d="M 340.7 314.6 L 286 314.6 L 267.7 252 L 322.5 252 Z"/><path d="M 395.5 494.5 L 340.7 494.5 L 322.5 431.9 L 377.2 431.9 Z"/></svg></a>
-  <div class="r"><a href="#work">Work</a><a href="#" data-all>All work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+<header class="bar mono" id="nav">
+  <a class="brand" href="#top" aria-label="Fateh Ali Zafar, home"><svg viewBox="147 251 249.5 245" width="36" height="36" fill="currentColor"><path d="M 343.3 377.2 L 323.1 431.9 L 231.5 431.9 L 202.5 494.5 L 147.8 494.5 L 231.2 314.6 L 286 314.6 L 256.9 377.2 Z"/><path d="M 340.7 314.6 L 286 314.6 L 267.7 252 L 322.5 252 Z"/><path d="M 395.5 494.5 L 340.7 494.5 L 322.5 431.9 L 377.2 431.9 Z"/></svg></a>
+  <button class="mb mono" id="mb" aria-expanded="false"><span class="mb-l">Menu</span><i></i><i></i></button>
 </header>
 
 <section class="hero" id="top">
@@ -194,6 +209,11 @@ h1 .dim{color:var(--dim)}
 </section>
 
 
+
+<div class="mn mono-none" id="mn" aria-hidden="true">
+  <nav><a href="#work" data-mc><span>Work</span></a><a href="#" data-all data-mc><span>All work</span></a><a href="#about" data-mc><span>About</span></a><a href="#contact" data-mc><span>Contact</span></a></nav>
+  <div class="ft mono"><span>fatehalizafar888@gmail.com</span><div><a href="https://www.behance.net/fatehalizafar" target="_blank" rel="noopener">Behance</a><a href="https://www.instagram.com/the_art_wave__" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/fatehali-zafar-786424265" target="_blank" rel="noopener">LinkedIn</a></div></div>
+</div>
 <div class="aw" id="aw" aria-hidden="true">
   <div class="aw-top"><p class="mono dim">All work · <span id="awn">12</span></p><button class="aw-x mono" id="awx">Close ✕</button></div>
   <div class="aw-head"><h2>What do you want to see?</h2><div class="chips" id="chips"></div></div>
@@ -245,6 +265,12 @@ function go(n){idx=Math.max(0,Math.min(cards.length-1,n));const off=cards[idx].o
 document.getElementById('next').onclick=()=>go(idx+1);document.getElementById('prev').onclick=()=>go(idx-1);
 let sx=null;track.parentElement.addEventListener('pointerdown',e=>{sx=e.clientX});addEventListener('pointerup',e=>{if(sx===null)return;const d=e.clientX-sx;if(Math.abs(d)>50)go(idx+(d<0?1:-1));sx=null});
 addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1)});go(0);
+/* ---- menu ---- */
+const mb=document.getElementById('mb'),mn=document.getElementById('mn');
+function openMN(o){mn.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.querySelector('.mb-l').textContent=o?'Close':'Menu';mn.setAttribute('aria-hidden',!o);document.documentElement.style.overflow=o?'hidden':''}
+mb.onclick=()=>openMN(!mn.classList.contains('open'));
+mn.querySelectorAll('[data-mc]').forEach(a=>a.addEventListener('click',()=>openMN(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&mn.classList.contains('open'))openMN(false)});
 /* ---- all work ---- */
 const IG2='../images/immersive-gaming/',DR2='../images/drip/';
 const WORKS=[
@@ -269,7 +295,7 @@ function renderW(){const L=cat==='All'?WORKS:WORKS.filter(w=>w.c.includes(cat));
 renderW();
 chips.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;chips.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));renderW()});
 function openAW(o){aw.classList.toggle('open',o);aw.setAttribute('aria-hidden',!o);document.documentElement.style.overflow=o?'hidden':''}
-document.querySelectorAll('[data-all]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();openAW(true)}));
+document.querySelectorAll('[data-all]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();setTimeout(()=>openAW(true),mn.classList.contains('open')?0:0)}));
 document.getElementById('awx').onclick=()=>openAW(false);
 addEventListener('keydown',e=>{if(e.key==='Escape')openAW(false)});
 const mxW=()=>Math.max(0,awt.scrollWidth-innerWidth);
@@ -280,13 +306,13 @@ addEventListener('pointermove',e=>{if(dX===null)return;if(Math.abs(e.clientX-dX)
 addEventListener('pointerup',()=>dX=null);
 vpW.addEventListener('click',e=>{if(moved){e.preventDefault();moved=false}},true);
 /* ---- nav + scroll velocity motion ---- */
-const barEl=document.getElementById('bar');let lastY=0,vel=0,prevY=scrollY;
+const barEl=document.getElementById("nav");let lastY=0,vel=0,prevY=scrollY;
 const SKW=[...document.querySelectorAll('.cw .card,.blk,.dis>div,.row')],HD=[...document.querySelectorAll('.sh h2,.ct h2')];
 (function loop(){
  ax+=(axT-ax)*.1;awt.style.transform=`translate3d(${-ax}px,0,0)`;
  if(aw.classList.contains('open'))[...awt.children].forEach(c=>{const r=c.getBoundingClientRect(),m=(r.left+r.width/2)/innerWidth-.5;c.style.transform=`translateY(${m*m*90}px) rotate(${m*7}deg)`});
  const y=scrollY,d=y-prevY;prevY=y;vel+=(d-vel)*.12;
- if(Math.abs(y-lastY)>6){barEl.classList.toggle('hide',y>lastY&&y>120);lastY=y}
+ if(Math.abs(y-lastY)>6){barEl.classList.toggle('hide',y>lastY&&y>120&&!mn.classList.contains('open'));lastY=y}
  barEl.classList.toggle('solid',y>40);
  const sk=Math.max(-7,Math.min(7,vel*.18));
  SKW.forEach(el=>{el.style.transform=`skewY(${(sk*.35).toFixed(2)}deg)`});
