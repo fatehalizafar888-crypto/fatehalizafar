@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fateh Ali Zafar | Designer</title>
+<meta name="description" content="Fateh Ali Zafar is a designer in Lahore working across brand identity, UX and UI, motion and publication design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--disp:'Inter Tight',Inter,system-ui,-apple-system,sans-serif;--bg:#0b0b0b;--ink:#f3f3f1;--grey:#a6a6a2;--dim:#6d6d6a;--line:#232323;--panel:#141414;--pad:clamp(20px,4vw,56px);--out:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.h{font-family:var(--disp);font-weight:600;letter-spacing:-.035em;line-height:.98}
+.lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);font-weight:500}
+.wrap{padding:0 var(--pad)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);transition:background .4s,backdrop-filter .4s}
+nav.solid{background:rgba(11,11,11,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px;letter-spacing:-.01em}
+.brand svg{width:30px;height:30px}
+.links{display:flex;gap:34px;font-size:14px;color:var(--grey)}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;font-size:14px;font-weight:500;transition:background .3s,color .3s,border-color .3s}
+.btn.w{background:var(--ink);color:#0b0b0b}.btn.w:hover{background:#fff}
+.btn.o{border:1px solid #3a3a3a}.btn.o:hover{border-color:var(--ink)}
+.btn .ar{transition:transform .3s var(--out)}.btn:hover .ar{transform:translateX(4px)}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,11,.92) 0%,rgba(11,11,11,.62) 45%,rgba(11,11,11,.25) 100%),linear-gradient(0deg,#0b0b0b 0%,transparent 35%)}
+.hero-in{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:clamp(40px,9vh,96px);display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}
+.hero h1{font-size:clamp(3rem,8.6vw,9.2rem);max-width:11ch}
+.hero h1 span{color:var(--dim)}
+.hero p{font-size:clamp(16px,1.35vw,20px);color:#cfcfcb;max-width:44ch;margin-top:26px}
+.cta{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.avail{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--grey);white-space:nowrap}
+.avail i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+
+/* intro strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip div{padding:28px var(--pad);border-right:1px solid var(--line)}.strip div:last-child{border-right:0}
+.strip b{display:block;font-family:var(--disp);font-weight:600;font-size:clamp(28px,3vw,44px);letter-spacing:-.03em}
+.strip span{font-size:13px;color:var(--grey)}
+
+/* section head */
+.sec{padding:clamp(80px,14vh,160px) 0 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:clamp(36px,6vh,64px)}
+.sh h2{font-size:clamp(2.4rem,5.6vw,5.6rem)}
+.sh p{max-width:38ch;color:var(--grey)}
+
+/* selected work */
+.proj{display:block;border-top:1px solid var(--line);padding:clamp(28px,4vh,44px) 0 clamp(60px,9vh,110px)}
+.proj-top{display:grid;grid-template-columns:90px 1fr auto;gap:24px;align-items:baseline;margin-bottom:28px}
+.proj-n{font-size:14px;color:var(--dim)}
+.proj h3{font-size:clamp(2rem,4.6vw,4.4rem)}
+.proj-line{color:var(--grey);margin-top:12px;max-width:52ch;font-size:clamp(15px,1.2vw,18px)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.chip{font-size:12px;border:1px solid #333;border-radius:999px;padding:7px 12px;color:#cfcfcb;white-space:nowrap}
+.media{position:relative;overflow:hidden;border-radius:14px;aspect-ratio:16/8.4;background:var(--panel)}
+.media img,.media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform 1.2s var(--out),opacity .6s}
+.media video{opacity:0}
+.proj:hover .media img{transform:scale(1.035)}
+.proj:hover .media video{opacity:1}
+.view{position:absolute;right:20px;bottom:20px;z-index:2;background:var(--ink);color:#0b0b0b;border-radius:999px;padding:12px 18px;font-size:14px;font-weight:500;transform:translateY(12px);opacity:0;transition:all .5s var(--out)}
+.proj:hover .view{transform:none;opacity:1}
+.proj-foot{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:22px;font-size:14px}
+.proj-foot span{display:block;color:var(--dim);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+
+/* list rows */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:90px 1.4fr 1fr 1fr 40px;gap:20px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);transition:padding .4s var(--out),color .3s;color:var(--ink)}
+.row .n{color:var(--dim);font-size:14px}
+.row .t{font-family:var(--disp);font-weight:600;font-size:clamp(20px,2vw,28px);letter-spacing:-.02em}
+.row .c{color:var(--grey);font-size:15px}
+.row .a{justify-self:end;transition:transform .4s var(--out)}
+a.row:hover{padding-left:14px}
+a.row:hover .a{transform:translateX(6px)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.svc div{padding:34px 26px 40px 0;border-right:1px solid var(--line);padding-left:26px}
+.svc div:first-child{padding-left:0}.svc div:last-child{border-right:0}
+.svc b{font-family:var(--disp);font-weight:600;font-size:22px;letter-spacing:-.02em;display:block;margin:18px 0 10px}
+.svc p{color:var(--grey);font-size:15px}
+.svc em{font-style:normal;color:var(--dim);font-size:13px}
+
+/* about */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,100px);align-items:start}
+.about figure{border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:var(--panel);max-width:460px}
+.about figure img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.about .big{font-family:var(--disp);font-weight:500;font-size:clamp(24px,2.6vw,38px);line-height:1.22;letter-spacing:-.02em}
+.about .big span{color:var(--dim)}
+.about .small{color:var(--grey);margin-top:26px;max-width:54ch}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
+.facts span{display:block;color:var(--dim);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+
+/* contact */
+.contact{padding:clamp(100px,18vh,200px) var(--pad) 40px;margin-top:clamp(80px,14vh,160px);border-top:1px solid var(--line)}
+.contact h2{font-size:clamp(3.2rem,11vw,12rem)}
+.contact h2 span{color:var(--dim)}
+.mail{display:inline-block;font-family:var(--disp);font-weight:500;font-size:clamp(22px,3vw,44px);letter-spacing:-.02em;margin-top:36px;border-bottom:1px solid #444;padding-bottom:6px;transition:border-color .3s}
+.mail:hover{border-color:var(--ink)}
+.soc{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap}
+.foot{display:flex;justify-content:space-between;gap:20px;margin-top:clamp(80px,14vh,140px);padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--out),transform 1.1s var(--out)}
+.rv.in{opacity:1;transform:none}
+.hero .rv{transition-delay:.15s}
+
+@media (max-width:900px){
+  .links{display:none}
+  .hero-in{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr 1fr}.strip div:nth-child(2){border-right:0}.strip div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .sh{flex-direction:column;align-items:start}
+  .proj-top{grid-template-columns:1fr}.meta{justify-content:flex-start}.proj-n{display:none}
+  .media{aspect-ratio:4/3}
+  .view{opacity:1;transform:none}
+  .proj-foot{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr 30px}.row .n,.row .c{display:none}.row .c.k{display:block;grid-column:1}
+  .svc{grid-template-columns:1fr 1fr}.svc div{padding-left:0;border-right:0;border-bottom:1px solid var(--line)}
+  .about{grid-template-columns:1fr}
+  .foot{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero video{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="mark"><path d="M 343.328125 377.175781 L 323.066406 431.933594 L 231.539062 431.933594 L 202.519531 494.519531 L 147.757812 494.519531 L 231.203125 314.59375 L 285.960938 314.59375 L 256.9375 377.175781 Z"/><path d="M 340.71875 314.59375 L 285.960938 314.59375 L 267.707031 252.011719 L 322.46875 252.011719 Z"/><path d="M 395.480469 494.519531 L 340.71875 494.519531 L 322.46875 431.933594 L 377.226562 431.933594 Z"/></g></defs></svg>
+
+<nav id="nav">
+  <a class="brand" href="#top"><svg viewBox="147 251 249.5 245" fill="currentColor"><use href="#mark"/></svg>Fateh Ali Zafar</a>
+  <div class="links"><a href="#work">Work</a><a href="#experiments">Experiments</a><a href="#services">Services</a><a href="#about">About</a></div>
+  <a class="btn w" href="#contact">Let's talk <span class="ar">&rarr;</span></a>
+</nav>
+
+<header class="hero" id="top">
+  <video src="media/reel.mp4" poster="media/reel-poster.jpg" autoplay muted loop playsinline></video>
+  <div class="hero-in">
+    <div>
+      <h1 class="h rv">Brands, apps and motion<span>.</span></h1>
+      <p class="rv">I'm Fateh, a designer in Lahore. I start with research and finish with a brand, a product or a film people actually want to use.</p>
+      <div class="cta rv"><a class="btn w" href="#work">See selected work <span class="ar">&darr;</span></a><a class="btn o" href="#contact">Get in touch</a></div>
+    </div>
+    <div class="avail rv"><i></i>Open to full time and freelance</div>
+  </div>
+</header>
+
+<section class="strip">
+  <div><b>3+</b><span>Years designing for real brands</span></div>
+  <div><b>4</b><span>Disciplines, one process</span></div>
+  <div><b>BNU</b><span>Visual Communication Design, 2026</span></div>
+  <div><b>Google</b><span>UX Design Professional Certificate</span></div>
+</section>
+
+<main class="wrap">
+  <section class="sec" id="work">
+    <div class="sh"><h2 class="h rv">Selected work</h2><p class="rv">Three projects taken from the first question all the way to a finished brand and product.</p></div>
+    <div id="projects"></div>
+  </section>
+
+  <section class="sec" id="experiments">
+    <div class="sh"><h2 class="h rv">Experiments</h2><p class="rv">Smaller projects and research I made for myself, with no brief.</p></div>
+    <div class="rows" id="exp"></div>
+  </section>
+
+  <section class="sec" id="experience">
+    <div class="sh"><h2 class="h rv">Experience</h2><p class="rv">Where I have worked so far.</p></div>
+    <div class="rows" id="jobs"></div>
+  </section>
+
+  <section class="sec" id="services">
+    <div class="sh"><h2 class="h rv">What I do</h2><p class="rv">Every project goes through the same process: research, a clear idea, then design that moves.</p></div>
+    <div class="svc rv">
+      <div><em>01</em><b>Brand identity</b><p>Logos, type, colour and full systems that work on a screen and on the street.</p></div>
+      <div><em>02</em><b>UX and UI</b><p>Research, flows and screens that make it easy to find what to tap and finish the task.</p></div>
+      <div><em>03</em><b>Motion</b><p>Logo animations, UI films and brand videos that bring the work to life.</p></div>
+      <div><em>04</em><b>Publication</b><p>Books, magazines and rulebooks with a clear reading order.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="about">
+      <figure class="rv"><img src="media/portrait.jpg" alt="Portrait of Fateh Ali Zafar" loading="lazy"></figure>
+      <div class="rv">
+        <p class="lab">About</p>
+        <p class="big" style="margin-top:22px">I treat every brief like a case to solve. <span>Find the clue, follow it, and design the moment it all clicks.</span></p>
+        <p class="small">I studied Visual Communication Design at Beaconhouse National University in Lahore. Outside design I'm on a football pitch, deep in a video game or reading crime cases. That is where most of my ideas come from, and why my own board game, Tafteesh, is a murder mystery.</p>
+        <div class="facts">
+          <div><span>Based in</span>Lahore, Pakistan</div>
+          <div><span>Working</span>Remote and on site</div>
+          <div><span>Tools</span>Figma, Illustrator, Photoshop, After Effects, InDesign</div>
+          <div><span>Languages</span>English, Urdu</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <p class="lab rv">Contact</p>
+  <h2 class="h rv" style="margin-top:20px">Have a project?<br><span>Let's talk.</span></h2>
+  <a class="mail rv" href="mailto:fatehalizafar888@gmail.com">fatehalizafar888@gmail.com</a>
+  <div class="soc rv">
+    <a class="btn o" href="https://www.behance.net/fatehalizafar" target="_blank" rel="noopener">Behance <span class="ar">&nearr;</span></a>
+    <a class="btn o" href="https://www.linkedin.com/in/fatehali-zafar-786424265" target="_blank" rel="noopener">LinkedIn <span class="ar">&nearr;</span></a>
+    <a class="btn o" href="https://www.instagram.com/the_art_wave__" target="_blank" rel="noopener">Instagram <span class="ar">&nearr;</span></a>
+  </div>
+  <div class="foot"><span>&copy; 2026 Fateh Ali Zafar</span><span>Designed and built in Lahore</span><a href="#top">Back to top &uarr;</a></div>
+</footer>
+
+<script>
+const SEL=[
+  {id:'immersive-gaming',t:'Immersive Gaming',line:'We watch together, then play alone. One app to watch streams, squad up and play AR quests across your city.',img:'../images/immersive-gaming/m01.webp',vid:'../images/immersive-gaming/video/ig-phone-mockup.mp4',tags:['UX case study','Brand','UI','AR','Motion'],role:'UX research, brand, UI, AR and motion',type:'Gaming app and website',year:'2026'},
+  {id:'drip',t:'Drip',line:'A full closet and still nothing to wear. A wardrobe app that turns the clothes you own into outfits you believe in.',img:'../images/drip/01.webp',vid:'../images/drip/video/drip-ui-walkthrough.mp4',tags:['UX case study','Brand','UI'],role:'Branding, UX research and UI',type:'Mobile app and brand identity',year:'2026'},
+  {id:'tafteesh-game',t:'Tafteesh',line:'A crime investigation board game set in Model Town, Lahore. Catch the killer on the map before he escapes.',img:'../images/tafteesh/16.webp',vid:null,tags:['Game design','Brand','Packaging'],role:'Game, brand and packaging design',type:'Board game, published',year:'2026'}
+];
+const EXP=[
+  ['atom-daily','ATOM Daily','Brand identity','2026'],
+  ['tafteesh','Tafteesh Data','Data visualisation','2026'],
+  ['two-grounds-one-field','Two Grounds, One Field','Spatial and behaviour mapping','2026'],
+  ['the-message','The Message, a visual essay','Visual culture','2026'],
+  ['fruit-ninja','Fruit Ninja','Social media','2026']
+];
+const JOBS=[
+  ['Montivo Digital','Graphic Designer','Packaging, social and motion','2026'],
+  ['Turing','Illustrator, contract','Illustration','2026'],
+  ['Strata','Website and Brand Designer','Website and social','2025'],
+  ['Experts Desk','UX and UI Designer, intern','Product design','2024'],
+  ['Freelance','DRI, Memus Kitchen, Psy Talk, Brand Solutions','Brand, motion and web','2022 to now']
+];
+const $=s=>document.querySelector(s);
+$('#projects').innerHTML=SEL.map((p,i)=>`<a class="proj rv" href="../#work-${p.id}">
+  <div class="proj-top"><span class="proj-n">0${i+1}</span><div><h3 class="h">${p.t}</h3><p class="proj-line">${p.line}</p></div><div class="meta">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}</div></div>
+  <div class="media"><img src="${p.img}" alt="${p.t}" loading="lazy">${p.vid?`<video src="${p.vid}" muted loop playsinline preload="none"></video>`:''}<span class="view">View case study &rarr;</span></div>
+  <div class="proj-foot"><div><span>Role</span>${p.role}</div><div><span>Type</span>${p.type}</div><div><span>Year</span>${p.year}</div></div></a>`).join('');
+$('#exp').innerHTML=EXP.map((e,i)=>`<a class="row rv" href="../#work-${e[0]}"><span class="n">0${i+1}</span><span class="t">${e[1]}</span><span class="c k">${e[2]}</span><span class="c">${e[3]}</span><span class="a">&rarr;</span></a>`).join('');
+$('#jobs').innerHTML=JOBS.map((j,i)=>`<div class="row rv"><span class="n">${j[3]}</span><span class="t">${j[0]}</span><span class="c k">${j[1]}</span><span class="c">${j[2]}</span><span></span></div>`).join('');
+document.querySelectorAll('.proj').forEach(a=>{const v=a.querySelector('video');if(!v)return;a.addEventListener('mouseenter',()=>{v.play().catch(()=>{})});a.addEventListener('mouseleave',()=>v.pause())});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>$('#nav').classList.toggle('solid',scrollY>40),{passive:true});
+</script>
+</body>
+</html>
