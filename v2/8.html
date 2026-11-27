@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fateh Ali Zafar · Designer</title>
+<style>
+@font-face{font-family:Funnel;src:url(fonts/funnel-display-latin-300-normal.woff2) format('woff2');font-weight:300}
+@font-face{font-family:Funnel;src:url(fonts/funnel-display-latin-400-normal.woff2) format('woff2');font-weight:400}
+@font-face{font-family:Funnel;src:url(fonts/funnel-display-latin-500-normal.woff2) format('woff2');font-weight:500}
+@font-face{font-family:Funnel;src:url(fonts/funnel-display-latin-600-normal.woff2) format('woff2');font-weight:600}
+@font-face{font-family:GMono;src:url(fonts/geist-mono-latin-400-normal.woff2) format('woff2');font-weight:400}
+:root{--bg:#1f1f1f;--ink:#fbf8ff;--grey:#9a99a0;--dim:#5e5d63;--line:#3a3a3e;--out:cubic-bezier(.16,1,.3,1);--pad:clamp(20px,4vw,60px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 18px/1.4 Funnel,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block}
+.mono{font-family:GMono,ui-monospace,monospace;font-size:11.5px;letter-spacing:.02em;line-height:1.2}
+.t{font-weight:400;letter-spacing:-.04em;line-height:.92}
+.px{display:inline-block;vertical-align:middle;transition:transform .4s var(--out)}
+a:hover .px{transform:translateX(5px)}
+
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:22px var(--pad);mix-blend-mode:difference}
+.bar .r{justify-self:end;display:flex;gap:26px}
+.brand{font-weight:500;font-size:18px;letter-spacing:-.03em}
+
+/* hero */
+.hero{height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.word{font-size:clamp(4rem,13vw,15rem);font-weight:400;letter-spacing:-.06em;line-height:.8;position:relative;white-space:nowrap}
+.word sup{font-size:.26em;letter-spacing:-.02em;vertical-align:top;position:relative;top:.05em;margin-left:.04em}
+.sq{position:absolute;left:-.08em;top:.02em;width:.055em;height:.055em;background:var(--ink)}
+.scroll{position:absolute;bottom:42px;color:var(--grey)}
+.hero-meta{position:absolute;left:var(--pad);right:var(--pad);bottom:42px;display:flex;justify-content:space-between;color:var(--grey)}
+
+/* text block with corner marks + side lines (Inception style) */
+.blk{position:relative;max-width:640px;margin:0 auto;padding:0 20px}
+.blk p{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.045em;line-height:.93}
+.blk p+p{margin-top:.9em}
+.blk .c{position:absolute;width:14px;height:14px;border-left:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);opacity:.8}
+.blk .c.a{left:-14px;top:-40px;transform:scaleX(-1) scaleY(-1);border-left:0;border-bottom:1.5px solid var(--ink);border-right:1.5px solid var(--ink)}
+.textsec{min-height:120svh;display:flex;align-items:center;position:relative;padding:120px 0}
+.textsec .ln{position:absolute;top:50%;height:1px;background:var(--line);width:calc(50vw - 360px)}
+.textsec .ln.l{left:0}.textsec .ln.r{right:0}
+.dim{color:var(--dim)}
+
+/* scale-on-scroll media */
+.scaler{height:220svh;position:relative}
+.scaler .stick{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.scaler .box{position:relative;width:100vw;height:100svh;overflow:hidden;will-change:clip-path}
+.scaler .box img,.scaler .box video{width:100%;height:100%;object-fit:cover;will-change:transform}
+.scaler .cap{position:absolute;left:var(--pad);bottom:28px;z-index:2;display:flex;gap:18px;color:var(--ink)}
+.scaler .over{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;pointer-events:none}
+
+/* project */
+.proj{padding:0 var(--pad)}
+.pinfo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;padding:36px 0 120px;border-top:1px solid var(--line);margin-top:-1px}
+.pinfo h3{font-size:clamp(34px,4vw,60px);font-weight:400;letter-spacing:-.05em;line-height:.9}
+.pinfo p{color:var(--grey);font-size:18px;max-width:34ch;letter-spacing:-.02em}
+.pinfo .go{justify-self:end;align-self:start;display:inline-flex;gap:12px;align-items:center;border-bottom:1px solid var(--ink);padding-bottom:4px;font-size:16px}
+.pinfo dl{display:grid;gap:12px}.pinfo dt{color:var(--dim)}.pinfo dd{font-size:15px;margin-top:2px}
+
+/* section label */
+.lbl{display:flex;justify-content:space-between;align-items:end;padding:140px var(--pad) 40px}
+.lbl h2{font-size:clamp(40px,6vw,96px);font-weight:400;letter-spacing:-.055em;line-height:.88}
+
+/* word list */
+.words{padding:40px var(--pad) 140px;columns:3;column-gap:40px}
+.words span{display:block;font-size:clamp(28px,3.4vw,52px);letter-spacing:-.05em;line-height:1.02;color:var(--dim);transition:color .5s}
+.words span.on{color:var(--ink)}
+
+/* experiments */
+.exp{padding:0 var(--pad)}
+.row{display:grid;grid-template-columns:70px 1fr 1fr auto;gap:20px;align-items:center;padding:22px 0;border-top:1px solid var(--line);transition:padding .5s var(--out)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row b{font-weight:400;font-size:clamp(22px,2.2vw,32px);letter-spacing:-.04em}
+.row .k{color:var(--grey)}
+.row:hover{padding-left:14px}
+
+/* contact */
+.ct{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px var(--pad) 40px;position:relative}
+.ct h2{font-size:clamp(4rem,12vw,13rem);font-weight:400;letter-spacing:-.06em;line-height:.82}
+.ct .mail{margin-top:40px;font-size:clamp(20px,2.4vw,34px);letter-spacing:-.03em;border-bottom:1px solid var(--grey);padding-bottom:6px}
+.ct .soc{display:flex;gap:26px;margin-top:30px;color:var(--grey)}
+.ct .soc a:hover{color:var(--ink)}
+.foot{position:absolute;left:var(--pad);right:var(--pad);bottom:26px;display:flex;justify-content:space-between;color:var(--dim)}
+
+.fade{opacity:0;transform:translateY(30px);transition:opacity 1.2s var(--out),transform 1.2s var(--out)}
+.fade.in{opacity:1;transform:none}
+@media(max-width:860px){.pinfo{grid-template-columns:1fr}.pinfo .go{justify-self:start}.words{columns:2}.row{grid-template-columns:1fr auto}.row .n,.row .k{display:none}.textsec .ln{display:none}.bar .r a:not(:last-child){display:none}}
+</style>
+</head>
+<body>
+
+<header class="bar mono">
+  <a class="brand" href="#top" style="font-family:Funnel;font-size:17px">fatehali</a>
+  <span class="dim">Designer · Lahore</span>
+  <div class="r"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</header>
+
+<section class="hero" id="top">
+  <h1 class="word"><i class="sq"></i>fatehali<sup>26</sup></h1>
+  <p class="mono scroll">Scroll to explore</p>
+  <div class="hero-meta mono"><span>Brand · UX/UI · Motion · Publication</span><span>Open to work ●</span></div>
+</section>
+
+<section class="textsec" id="about">
+  <i class="ln l"></i><i class="ln r"></i>
+  <div class="blk fade">
+    <i class="c a"></i>
+    <p>Hey, I'm Fateh. A designer from Lahore who treats every brief like a case.</p>
+    <p class="dim">Find the clue, follow it, and design the moment it all clicks.</p>
+    <i class="c" style="left:-14px;bottom:-40px"></i>
+  </div>
+</section>
+
+<section class="scaler" data-from="0.32">
+  <div class="stick"><div class="box"><img src="media/portrait.jpg" alt="Portrait of Fateh Ali Zafar" style="object-position:50% 18%;filter:grayscale(1)"></div>
+    <div class="cap mono"><span>Fateh Ali Zafar</span><span class="dim">VCD, BNU 2026 · Google UX certified</span></div></div>
+</section>
+
+<section class="textsec">
+  <i class="ln l"></i><i class="ln r"></i>
+  <div class="blk fade">
+    <i class="c a"></i>
+    <p>I studied Visual Communication Design at BNU, then worked with Montivo Digital, Strata and Experts Desk.</p>
+    <p>Outside design, I'm on a football pitch, deep in a video game or reading crime cases. <span class="dim">That's where most of my ideas start.</span></p>
+    <i class="c" style="left:-14px;bottom:-40px"></i>
+  </div>
+</section>
+
+<div class="lbl" id="work"><h2 class="fade">Three cases.<br><span class="dim">Start to finish.</span></h2><span class="mono dim fade">Selected work · 03</span></div>
+<div id="projects"></div>
+
+<div class="lbl"><h2 class="fade">One process.<br><span class="dim">Four disciplines.</span></h2><span class="mono dim fade">What I do</span></div>
+<div class="words" id="words"></div>
+
+<div class="lbl"><h2 class="fade">Experiments</h2><span class="mono dim fade">No brief · 05</span></div>
+<div class="exp" id="exp"></div>
+
+<section class="ct" id="contact">
+  <p class="mono dim fade">Contact</p>
+  <h2 class="fade" style="margin-top:24px">Let's talk<span class="dim">.</span></h2>
+  <a class="mail fade" href="mailto:fatehalizafar888@gmail.com">fatehalizafar888@gmail.com <span class="px-slot"></span></a>
+  <div class="soc mono fade"><a href="https://www.behance.net/fatehalizafar" target="_blank" rel="noopener">Behance</a><a href="https://www.linkedin.com/in/fatehali-zafar-786424265" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/the_art_wave__" target="_blank" rel="noopener">Instagram</a></div>
+  <div class="foot mono"><span>© 2026 Fateh Ali Zafar</span><span>Lahore, Pakistan</span><a href="#top">Back to top</a></div>
+</section>
+
+<script>
+const AR=(s=16)=>{const c=[[3,0],[4,1],[5,2],[0,3],[1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[5,4],[4,5],[3,6]];return `<svg class="px" width="${s}" height="${s}" viewBox="0 0 7 7" fill="currentColor" shape-rendering="crispEdges">${c.map(([x,y])=>`<rect x="${x}" y="${y}" width="1.02" height="1.02"/>`).join('')}</svg>`};
+document.querySelectorAll('.px-slot').forEach(e=>e.outerHTML=AR(18));
+const P=[
+ {id:'immersive-gaming',t:'Immersive Gaming',d:'We watch together, then play alone. One app to watch streams, squad up and play AR quests across the city.',img:'../images/immersive-gaming/m01.webp',vid:'../images/immersive-gaming/video/ig-ui-motion.mp4',role:'UX research, brand, UI, AR, motion',type:'Gaming app and website'},
+ {id:'drip',t:'Drip',d:'A full closet and still nothing to wear. A wardrobe app that turns the clothes you own into outfits you believe in.',img:'../images/drip/03.webp',role:'Brand, UX research, UI',type:'Mobile app and brand identity'},
+ {id:'tafteesh-game',t:'Tafteesh',d:'A crime investigation board game set in Model Town, Lahore. Catch the killer on the map before he escapes.',img:'../images/tafteesh/16.webp',role:'Game, brand, packaging',type:'Board game, published'}];
+document.getElementById('projects').innerHTML=P.map((p,i)=>`
+<section class="scaler" data-from="0.42"><div class="stick"><div class="box">${p.vid?`<video src="${p.vid}" poster="${p.img}" muted loop playsinline autoplay preload="metadata"></video>`:`<img src="${p.img}" alt="${p.t}">`}</div>
+<div class="cap mono"><span>Case 0${i+1}</span><span class="dim">${p.t}</span></div></div></section>
+<div class="proj"><div class="pinfo"><div><p class="mono dim" style="margin-bottom:14px">Case 0${i+1} · 2026</p><h3 class="fade">${p.t}</h3></div><div><p class="fade">${p.d}</p><dl class="mono fade" style="margin-top:26px"><div><dt>Role</dt><dd>${p.role}</dd></div><div><dt>Type</dt><dd>${p.type}</dd></div></dl></div>
+<a class="go fade" href="../#work-${p.id}">View case study ${AR(16)}</a></div></div>`).join('');
+const W=['Research','Interviews','Personas','Journey maps','Strategy','Naming','Logos','Type','Colour','Systems','Flows','Wireframes','Interfaces','Prototypes','Testing','Motion','Logo animation','UI films','Editorial','Books','Packaging','Campaigns','Launch'];
+document.getElementById('words').innerHTML=W.map(w=>`<span>${w}</span>`).join('');
+const E=[['atom-daily','ATOM Daily','Brand identity'],['tafteesh','Tafteesh Data','Data visualisation'],['two-grounds-one-field','Two Grounds, One Field','Spatial mapping'],['the-message','The Message','Visual essay'],['fruit-ninja','Fruit Ninja','Social media']];
+document.getElementById('exp').innerHTML=E.map((e,i)=>`<a class="row" href="../#work-${e[0]}"><span class="mono dim n">0${i+1}</span><b>${e[1]}</b><span class="k mono">${e[2]}</span>${AR(16)}</a>`).join('');
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+/* scale on scroll: box grows from small to full, then gently shrinks back */
+const S=[...document.querySelectorAll('.scaler')];const ws=[...document.querySelectorAll('#words span')];
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=x=>1-Math.pow(1-x,3);
+function tick(){
+  const vh=innerHeight,vw=innerWidth;
+  S.forEach(s=>{
+    const r=s.getBoundingClientRect(),total=r.height-vh,p=cl(-r.top/total),from=+s.dataset.from;
+    const grow=ease(cl(p/.55)),shrink=cl((p-.8)/.2);
+    const k=from+(1-from)*grow-(shrink*.12);
+    const ix=(1-k)*vw/2,iy=(1-k)*vh/2*0.82,rad=(1-grow)*18+shrink*18;
+    const box=s.querySelector('.box');box.style.clipPath=`inset(${iy}px ${ix}px round ${rad}px)`;
+    const m=box.firstElementChild;m.style.transform=`scale(${1.18-.18*grow})`;
+    s.querySelector('.cap').style.opacity=cl((grow-.85)/.15)*(1-shrink);
+    const v=s.querySelector('video');if(v){(r.top<vh&&r.bottom>0)?v.play().catch(()=>{}):v.pause()}
+  });
+  ws.forEach(w=>{const r=w.getBoundingClientRect();w.classList.toggle('on',r.top<vh*.62&&r.bottom>vh*.25)});
+  requestAnimationFrame(tick)}
+tick();
+</script>
+</body>
+</html>
